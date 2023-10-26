@@ -18,9 +18,14 @@ import ReactDOM from 'react-dom';
 import { Icon } from '@iconify/react';
 import * as React from 'react';
 
-const options = ['On transit', 'Delayed', 'Delivered', 'Cancelled', 'Invoice upload'];
+// i18n
+import { useTranslation, Trans } from 'react-i18next';
+import i18next from '../../../../i18n';
+
+const options = [i18next.t('page.settings.notifications.section.tracking.options.bystatus.ontransit'), i18next.t('page.settings.notifications.section.tracking.options.bystatus.delayed'), i18next.t('page.settings.notifications.section.tracking.options.bystatus.delivered'), i18next.t('page.settings.notifications.section.tracking.options.bystatus.cancelled'), i18next.t('page.settings.notifications.section.tracking.options.invoice.invoice')];
 
 export default function TrackingNotification() {
+  const {t} = useTranslation();
   const [selected, setSelected] = useState([]);
   const isAllSelected = options.length > 0 && selected.length === options.length;
 
@@ -56,23 +61,23 @@ export default function TrackingNotification() {
       <Stack direction="row" sx={{ gap: 2 }}>
         <Icon icon="ic:round-track-changes" width="32" height="32" />
         <Stack direction="row" alignItems="center" sx={{ gap: 2 }}>
-          <Typography variant="h5">Tracking</Typography>
+          <Typography variant="h5">{t('page.settings.notifications.section.tracking.title')}</Typography>
           <Divider orientation="vertical" variant="middle" flexItem />
-          <Typography variant="p">Track your orders invoice and/or status</Typography>
+          <Typography variant="p">{t('page.settings.notifications.section.tracking.text')}</Typography>
         </Stack>
       </Stack>
       <Divider sx={{ my: 1 }} />
       <Stack sx={{ display: 'flex', flexDirection: 'row', gap: '3rem' }}>
         <FormControlLabel
-          label="All options"
+          label={t('page.settings.notifications.section.tracking.options.all')}
           control={<Checkbox value="all" checked={isAllSelected} onChange={handleChange} />}
         />
         <FormControl>
-          <FormLabel>By Status</FormLabel>
+          <FormLabel>{t('page.settings.notifications.section.tracking.options.bystatus.title')}</FormLabel>
           <FormGroup>{listItem.slice(0, 4)}</FormGroup>
         </FormControl>
         <FormControl>
-          <FormLabel>Invoice</FormLabel>
+          <FormLabel>{t('page.settings.notifications.section.tracking.options.invoice.title')}</FormLabel>
           <FormGroup>{listItem.slice(4, 6)}</FormGroup>
         </FormControl>
       </Stack>

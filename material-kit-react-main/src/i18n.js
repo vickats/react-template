@@ -145,6 +145,9 @@ i18n
                 },
                 pagination:{
                   title: 'Results per page:'
+                },
+                modal:{
+                  
                 }
               },
             },
@@ -169,6 +172,71 @@ i18n
               },
               notifications:{
                 tab:'Notifications',
+                section:{
+                  whereNotify:{
+                    title:'Where to notify me',
+                    text:'Choose the best way to receive notifications',
+                    options:{
+                      all:'All options',
+                      email:'Email',
+                      desktop:'Desktop Push',
+                      mobile:'Mobile/App Push'
+                    }
+                  },
+                  tasks:{
+                    title:'Tasks',
+                    text:'Receive the most important tasks updates, for you or your team',
+                    options:{
+                      all:'All options',
+                      owner:{
+                        you:'Assigned to you',
+                        team:'Assigned to your team'
+                      },
+                      expiration:{
+                        title:'Expiration',
+                        twodays:'2 days before',
+                        fivedays:'5 days before',
+                      },
+                      status:{
+                        title:'Status',
+                        open:'Open',
+                        processing:'Ongoing',
+                        expired:'Expired',
+                        done:'Done',
+                      }
+                    }
+                  },
+                  tracking:{
+                    title:'Tracking',
+                    text:'Track your orders invoice and/or status',
+                    options:{
+                      all:'All options',
+                      bystatus:{
+                        title:'By Status',
+                        ontransit:'On transit',
+                        delayed:'Delayed',
+                        delivered:'Delivered',
+                        cancelled:'Cancelled'
+                      },
+                      invoice:{
+                        title:'Invoice',
+                        invoice:'Invoice update',
+                      }
+                    }
+                  },
+                  user:{
+                    title:'User',
+                    text:'Follow up the user activities organization',
+                    options:{
+                      all:'All options',
+                      new:'New Users',
+                      info:'Information update',
+                      deletion:'Users deletion',
+                      verification:'User verification',
+                      status:'Status update'
+                    }
+                  }
+                }
               },
               privacy:{
                 tab:'Privacy & Security',
@@ -269,8 +337,8 @@ i18n
               }
             },
             tracking: {
-              tab:'Controle',
-              title:'Controle',
+              tab:'Rastreamento',
+              title:'Rastreamento',
               table:{
                 head:{
                   select:'selecionado(s)',
@@ -283,7 +351,7 @@ i18n
                 row:{
                   status:{
                     cancelled:'Cancelado',
-                    ontransit:'Em transito',
+                    ontransit:'Em trânsito',
                     delivered:'Entregue',
                     delayed:'Atrasado',
                   },
@@ -306,6 +374,9 @@ i18n
                 },
                 pagination:{
                   title: 'Resultados por página:'
+                },
+                modal:{
+                  
                 }
               }            
             },
@@ -330,6 +401,71 @@ i18n
               },
               notifications:{
                 tab:'Notificações',
+                section:{
+                  whereNotify:{
+                    title:'Onde me notificar',
+                    text:'Escolha onde receber suas notificações',
+                    options:{
+                      all:'Todas as opções',
+                      email:'Email',
+                      desktop:'Notificação Desktop',
+                      mobile:'Notificação Mobile/App'
+                    }
+                  },
+                  tasks:{
+                    title:'Tarefas',
+                    text:'Receba as atualizações de tarefas mais importantes, para você ou sua equipe',
+                    options:{
+                      all:'Todas as opções',
+                      owner:{
+                        you:'Atribuído a você',
+                        team:'Atribuído ao seu time'
+                      },
+                      expiration:{
+                        title:'Vencimento',
+                        twodays:'2 dias antes',
+                        fivedays:'5 dias antes',
+                      },
+                      status:{
+                        title:'Status',
+                        open:'Aberto',
+                        processing:'Em andamento',
+                        expired:'Expirado',
+                        done:'Concluído',
+                      }
+                    }
+                  },
+                  tracking:{
+                    title:'Rastreamento',
+                    text:'Rastreie a nota fiscal e/ou o status do seu pedido.',
+                    options:{
+                      all:'Todas as opções',
+                      bystatus:{
+                        title:'Por status',
+                        ontransit:'Em trânsito',
+                        delayed:'Atrasado',
+                        delivered:'Entregue',
+                        cancelled:'Cancelado'
+                      },
+                      invoice:{
+                        title:'Nota Fiscal',
+                        invoice:'Atualização de nota fiscal',
+                      }
+                    }
+                  },
+                  user:{
+                    title:'Usuário',
+                    text:'Acompanhe as atualizações das atividades dos usuários',
+                    options:{
+                      all:'Todas as opções',
+                      new:'Novos usuários',
+                      info:'Informações atualizadas',
+                      deletion:'Remoção de usuários',
+                      verification:'Verificação de usuários',
+                      status:'Status atualizados'
+                    }
+                  }
+                }
               },
               privacy:{
                 tab:'Privacidade & Segurança',
@@ -467,7 +603,8 @@ i18n
                 },
                 pagination:{
                   title: 'Resultados por página:'
-                }
+                },
+                
               }
             },
             settings:{
@@ -491,6 +628,71 @@ i18n
               },
               notifications:{
                 tab:'Notificaciones',
+                section:{
+                  whereNotify:{
+                    title:'Donde notificarme',
+                    text:'Elige dónde recibir tus notificaciones',
+                    options:{
+                      all:'Todas las opciones',
+                      email:'Email',
+                      desktop:'Notificación Desktop',
+                      mobile:'Notificación Mobile/App'
+                    }
+                  },
+                  tasks:{
+                    title:'Tareas',
+                    text:'Reciba las actualizaciones de tareas más importantes, para usted o su equipo',
+                    options:{
+                      all:'Todas las opciones',
+                      owner:{
+                        you:'Asignado a ti',
+                        team:'Asignado a tu equipo'
+                      },
+                      expiration:{
+                        title:'Vencimiento',
+                        twodays:'2 días antes',
+                        fivedays:'5 días antes',
+                      },
+                      status:{
+                        title:'Status',
+                        open:'Abierto',
+                        processing:'En curso',
+                        expired:'Caducado',
+                        done:'Concluido',
+                      }
+                    }
+                  },
+                  tracking:{
+                    title:'Rastreo',
+                    text:'Rastrear la factura y/o el estado de sus pedidos',
+                    options:{
+                      all:'Todas as opciones',
+                      bystatus:{
+                        title:'Por status',
+                        ontransit:'En transito',
+                        delayed:'Atrasado',
+                        delivered:'Entregado',
+                        cancelled:'Cancelado'
+                      },
+                      invoice:{
+                        title:'Factura',
+                        invoice:'Atualização de factura',
+                      }
+                    }
+                  },
+                  user:{
+                    title:'Usuario',
+                    text:'Siga las actualizaciones de la actividad del usuario',
+                    options:{
+                      all:'Todas las opciones',
+                      new:'Nuevos usuarios',
+                      info:'Información actualizada',
+                      deletion:'Eliminación de usuario',
+                      verification:'Verificación de usuario',
+                      status:'Status actualizado'
+                    }
+                  }
+                }
               },
               privacy:{
                 tab:'Privacidad y Seguridad',

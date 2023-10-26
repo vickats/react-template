@@ -4,9 +4,14 @@ import ReactDOM from 'react-dom';
 import { Icon } from '@iconify/react';
 import * as React from 'react';
 
-const options = ['Email', 'Desktop Push', 'Mobile/App Push'];
+// i18n
+import { useTranslation, Trans } from 'react-i18next';
+import i18next from '../../../../i18n';
+
+const options = [i18next.t('page.settings.notifications.section.whereNotify.options.email'), i18next.t('page.settings.notifications.section.whereNotify.options.desktop'), i18next.t('page.settings.notifications.section.whereNotify.options.mobile')];
 
 export default function WhereToNotify() {
+  const {t} = useTranslation();
   const [selected, setSelected] = useState([]);
   const isAllSelected = options.length > 0 && selected.length === options.length;
 
@@ -42,15 +47,15 @@ export default function WhereToNotify() {
       <Stack direction="row" sx={{ gap: 2 }}>
         <Icon icon="tabler:notification" width="32" height="32" />
         <Stack direction="row" alignItems="center" sx={{ gap: 2 }}>
-          <Typography variant="h5">Where to notify me</Typography>
+          <Typography variant="h5">{t('page.settings.notifications.section.whereNotify.title')}</Typography>
           <Divider orientation="vertical" variant="middle" flexItem />
-          <Typography variant="p">Choose the best way to receive notifcations</Typography>
+          <Typography variant="p">{t('page.settings.notifications.section.whereNotify.text')}</Typography>
         </Stack>
       </Stack>
       <Divider sx={{ my: 1 }} />
       <Stack sx={{ display: 'flex', flexDirection: 'row', gap: '3rem' }}>
         <FormControlLabel
-          label="All options"
+          label={t('page.settings.notifications.section.whereNotify.options.all')}
           control={<Checkbox value="all" checked={isAllSelected} onChange={handleChange} />}
         />
         <FormGroup>{listItem}</FormGroup>

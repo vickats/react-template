@@ -18,9 +18,14 @@ import ReactDOM from 'react-dom';
 import { Icon } from '@iconify/react';
 import * as React from 'react';
 
-const options = ['2 days before', '5 days before', 'Open', 'Processing', 'Expired', 'Done'];
+// i18n
+import { useTranslation, Trans } from 'react-i18next';
+import i18next from '../../../../i18n';
+
+const options = [i18next.t('page.settings.notifications.section.tasks.options.expiration.twodays'), i18next.t('page.settings.notifications.section.tasks.options.expiration.fivedays'), i18next.t('page.settings.notifications.section.tasks.options.status.open'), i18next.t('page.settings.notifications.section.tasks.options.status.processing'), i18next.t('page.settings.notifications.section.tasks.options.status.expired'), i18next.t('page.settings.notifications.section.tasks.options.status.done')];
 
 export default function TasksNotification() {
+  const {t} = useTranslation();
   const [selected, setSelected] = useState([]);
   const isAllSelected = options.length > 0 && selected.length === options.length;
 
@@ -56,17 +61,16 @@ export default function TasksNotification() {
       <Stack direction="row" sx={{ gap: 2 }}>
         <Icon icon="fe:list-task" width="32" height="32" />
         <Stack direction="row" alignItems="center" sx={{ gap: 2, width: '100%' }}>
-          <Typography variant="h5">Tasks</Typography>
+          <Typography variant="h5">{t('page.settings.notifications.section.tasks.title')}</Typography>
           <Divider orientation="vertical" variant="middle" flexItem />
           <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ width: '100%' }}>
-            <Typography variant="p">Receive the most important tasks updates, for you or your team</Typography>
+            <Typography variant="p">{t('page.settings.notifications.section.tasks.text')}</Typography>
             <RadioGroup
               name="radio-buttons-group"
-              defaultValue="single-task"
               sx={{ display: 'flex', alignItems: 'center', flexDirection: 'row' }}
             >
-              <FormControlLabel control={<Radio />} value="single-task" label="Owned just by you" />
-              <FormControlLabel control={<Radio />} value="team-task" label="Owned by your team" />
+              <FormControlLabel control={<Radio />} value="single-task" label={t('page.settings.notifications.section.tasks.options.owner.you')} />
+              <FormControlLabel control={<Radio />} value="team-task" label={t('page.settings.notifications.section.tasks.options.owner.you')} />
             </RadioGroup>
           </Stack>
         </Stack>
@@ -75,15 +79,15 @@ export default function TasksNotification() {
       <Divider sx={{ my: 1 }} />
       <Stack sx={{ display: 'flex', flexDirection: 'row', gap: '3rem' }}>
         <FormControlLabel
-          label="All options"
+          label={t('page.settings.notifications.section.tasks.options.all')}
           control={<Checkbox value="all" checked={isAllSelected} onChange={handleChange} />}
         />
         <FormControl>
-          <FormLabel>Expiration</FormLabel>
+          <FormLabel>{t('page.settings.notifications.section.tasks.options.expiration.title')}</FormLabel>
           <FormGroup>{listItem.slice(0, 2)}</FormGroup>
         </FormControl>
         <FormControl>
-          <FormLabel>Status</FormLabel>
+          <FormLabel>{t('page.settings.notifications.section.tasks.options.status.title')}</FormLabel>
           <FormGroup>{listItem.slice(2, 6)}</FormGroup>
         </FormControl>
       </Stack>

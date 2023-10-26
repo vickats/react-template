@@ -17,9 +17,14 @@ import {
   RadioGroup,
   FormControl,
 } from '@mui/material';
+
 // import { green } from '@mui/material/colors';
 // import Iconify from '../../../components/iconify';
 import { Icon } from '@iconify/react';
+
+// i18n
+import { useTranslation, Trans } from 'react-i18next';
+import i18next from '../../../i18n';
 
 // Content
 import WhereToNotify from './notification/WhereToNotify';
@@ -28,6 +33,9 @@ import TrackingNotification from './notification/TrackingNotification';
 import UserNotification from './notification/UserNotification';
 
 export default function NotificationSettings() {
+
+  const {t} = useTranslation();
+
   return (
     <Box
       component="form"
@@ -54,11 +62,11 @@ export default function NotificationSettings() {
       </Grid>
       <Grid>
         <FormHelperText>
-          Some information are managed by your company. To change it, contact your support.
+        {t('page.settings.helperText')}
         </FormHelperText>
         <Button variant="contained" type="submit" sx={{ my: 2 }}>
           {' '}
-          Save
+          {t('page.settings.btn.save')}
         </Button>
       </Grid>
     </Box>

@@ -18,9 +18,14 @@ import ReactDOM from 'react-dom';
 import { Icon } from '@iconify/react';
 import * as React from 'react';
 
-const options = ['New users', 'Information update', 'Users deletion', 'Users verification', 'Status update'];
+// i18n
+import { useTranslation, Trans } from 'react-i18next';
+import i18next from '../../../../i18n';
+
+const options = [i18next.t('page.settings.notifications.section.user.options.new'), i18next.t('page.settings.notifications.section.user.options.info'), i18next.t('page.settings.notifications.section.user.options.deletion'), i18next.t('page.settings.notifications.section.user.options.verification'), i18next.t('page.settings.notifications.section.user.options.status')];
 
 export default function UserNotification() {
+  const {t} = useTranslation();
   const [selected, setSelected] = useState([]);
   const isAllSelected = options.length > 0 && selected.length === options.length;
 
@@ -56,15 +61,15 @@ export default function UserNotification() {
       <Stack direction="row" sx={{ gap: 2 }}>
         <Icon icon="mingcute:user-2-line" width="32" height="32" />
         <Stack direction="row" alignItems="center" sx={{ gap: 2 }}>
-          <Typography variant="h5">User</Typography>
+          <Typography variant="h5">{t('page.settings.notifications.section.user.title')}</Typography>
           <Divider orientation="vertical" variant="middle" flexItem />
-          <Typography variant="p">Follow up the user activities organization</Typography>
+          <Typography variant="p">{t('page.settings.notifications.section.user.text')}</Typography>
         </Stack>
       </Stack>
       <Divider sx={{ my: 1 }} />
       <Stack sx={{ display: 'flex', flexDirection: 'row', gap: '3rem' }}>
         <FormControlLabel
-          label="All options"
+          label={t('page.settings.notifications.section.user.options.all')}
           control={<Checkbox value="all" checked={isAllSelected} onChange={handleChange} />}
         />
         <FormControl>
