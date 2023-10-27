@@ -251,37 +251,37 @@ export default function TrackingPage() {
   }, []);
 
   // File Child Modal
-  function FileChildModal() {
-    const [openFileChild, setOpenFileChild] = useState(false);
-    const handleOpenFileChild = () => {
-      setOpenFileChild(true);
-    };
-    const handleCloseFileChild = () => {
-      setOpenFileChild(false);
-    };
+  // function FileChildModal() {
+  //   const [openFileChild, setOpenFileChild] = useState(false);
+  //   const handleOpenFileChild = () => {
+  //     setOpenFileChild(true);
+  //   };
+  //   const handleCloseFileChild = () => {
+  //     setOpenFileChild(false);
+  //   };
 
-    return (
-      <>
-        <Button onClick={handleOpenFileChild}>Open File Child Modal</Button>
-        <Modal
-          open={openFileChild}
-          onClose={handleCloseFileChild}
-          aria-labelledby="child-modal-title"
-          aria-describedby="child-modal-description"
-          sx={{ '& .MuiBackdrop-root.MuiModal-backdrop': { backgroundColor: 'rgba(33, 43, 54, 0.1)' } }}
-        >
-          <Box sx={{ ...style, minWidth: 800 }}>
-            <h2 id="child-modal-title">NF</h2>
-            <p id="child-modal-description">
-              Et veniam dolore aliquip laboris mollit fugiat quis magna minim quis culpa eiusmod. Deserunt consequat
-              amet cillum ipsum et. Consectetur laboris occaecat irure ex deserunt excepteur velit esse elit.{' '}
-            </p>
-            <Button onClick={handleCloseFileChild}>Close child modal</Button>
-          </Box>
-        </Modal>
-      </>
-    );
-  }
+  //   return (
+  //     <>
+  //       <Button onClick={handleOpenFileChild}>Open File Child Modal</Button>
+  //       <Modal
+  //         open={openFileChild}
+  //         onClose={handleCloseFileChild}
+  //         aria-labelledby="child-modal-title"
+  //         aria-describedby="child-modal-description"
+  //         sx={{ '& .MuiBackdrop-root.MuiModal-backdrop': { backgroundColor: 'rgba(33, 43, 54, 0.1)' } }}
+  //       >
+  //         <Box sx={{ ...style, minWidth: 800 }}>
+  //           <h2 id="child-modal-title">Nota Fiscal</h2>
+  //           <p id="child-modal-description">
+  //             Et veniam dolore aliquip laboris mollit fugiat quis magna minim quis culpa eiusmod. Deserunt consequat
+  //             amet cillum ipsum et. Consectetur laboris occaecat irure ex deserunt excepteur velit esse elit.{' '}
+  //           </p>
+  //           <Button onClick={handleCloseFileChild}>Close child modal</Button>
+  //         </Box>
+  //       </Modal>
+  //     </>
+  //   );
+  // }
 
   // Confirm Child Modal
   function ConfirmChildModal() {
@@ -296,12 +296,12 @@ export default function TrackingPage() {
 
     return (
       <>
-        <Stack align="center" direction="row" justifyContent={'center'} spacing={3}>
+        <Stack align="center" direction="row" justifyContent={'center'} spacing={3} sx={{mt:4}}>
           <Button variant="contained" color="success" onClick={handleOpenConfirmChild}>
-            Confirm
+          {t('page.tracking.table.modal.confirm.btn.confirm')}
           </Button>
           <Button variant="outlined" onClick={handleCloseConfirm}>
-            Nevermind
+          {t('page.tracking.table.modal.confirm.btn.close')}
           </Button>
         </Stack>
         <Modal
@@ -324,15 +324,14 @@ export default function TrackingPage() {
                   </g>
                 </g>
               </svg>
-              <h2 id="child-modal-title">Delivery confirmed</h2>
+              <h2 id="child-modal-title">{t('page.tracking.table.modal.confirm.success.title')}</h2>
             </Stack>
-            <p id="child-modal-description">
-              Et veniam dolore aliquip laboris mollit fugiat quis magna minim quis culpa eiusmod. Deserunt consequat
-              amet cillum ipsum et.{' '}
+            <p id="child-modal-description" style={{whiteSpace:'pre-line'}}>
+            {t('page.tracking.table.modal.confirm.success.text')}{' '}
             </p>
             <Stack direction="column" justifyContent="center" alignItems="center">
               <Button onClick={handleCloseConfirm} variant="outlined">
-                Close child modal
+              {t('page.tracking.table.modal.confirm.success.btn.close')}
               </Button>
             </Stack>
           </Box>
@@ -469,12 +468,50 @@ export default function TrackingPage() {
                           aria-describedby="parent-modal-description"
                           sx={{ '& .MuiBackdrop-root.MuiModal-backdrop': { backgroundColor: 'rgba(33, 43, 54, 0.1)' } }}
                         >
-                          <Box sx={{ ...style, minWidth: 400 }}>
-                            <h2 id="parent-modal-title">NF</h2>
-                            <p id="parent-modal-description">
-                              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                            </p>
-                            <FileChildModal />
+                          <Box sx={{ ...style, minWidth: 800 }}>
+                            <Stack sx={{display: 'flex', alignItems: 'center', flexDirection:'row', justifyContent:'space-between'}}>
+                              <h2 id="parent-modal-title">{t('page.tracking.table.modal.nf.title')}</h2> 
+                              <TableCell align="right">
+                                <IconButton size="large" color="inherit" onClick={handleOpenMenu}>
+                                  <Iconify icon={'eva:more-vertical-fill'} />
+                                </IconButton>
+                              </TableCell>
+                              <Popover
+                                open={Boolean(open)}
+                                anchorEl={open}
+                                onClose={handleCloseMenu}
+                                anchorOrigin={{ vertical: 'top', horizontal: 'left' }}
+                                transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+                                PaperProps={{
+                                  sx: {
+                                    p: 1,
+                                    width: 'auto',
+                                    '& .MuiMenuItem-root': {
+                                      px: 1,
+                                      typography: 'body2',
+                                      borderRadius: 0.75,
+                                    },
+                                  },
+                                }}
+                              >
+                                <MenuItem >
+                                  <Iconify icon={'eva:share-outline'} sx={{ mr: 2 }} />
+                                  {t('page.tracking.table.modal.nf.options.share')}
+                                </MenuItem>
+
+                                <MenuItem sx={{ color: 'error.main'}}>
+                                  <Iconify icon={'tabler:file-spreadsheet'} sx={{ mr: 2 }}/>
+                                  {t('page.tracking.table.modal.nf.options.print')}
+                                </MenuItem>
+                              </Popover>                        
+                            </Stack>
+                            <Stack sx={{border:'1px solid lightgray', borderRadius: '5px'}}>
+                              <br/>
+                            </Stack>
+                            {/* <FileChildModal /> */}
+                            <Box sx={{display:'flex', alignItems:'center', flexDirection:'column', mt:3}}>
+                              <Button sx={{alignSelf:'center' }} variant='contained' onClick={handleCloseFile}>{t('page.tracking.table.modal.nf.btn.close')}</Button>
+                            </Box>
                           </Box>
                         </Modal>
 
@@ -499,10 +536,10 @@ export default function TrackingPage() {
                           aria-describedby="parent-modal-description"
                           sx={{ '& .MuiBackdrop-root.MuiModal-backdrop': { backgroundColor: 'rgba(33, 43, 54, 0.1)' } }}
                         >
-                          <Box sx={{ ...style, minWidth: 400 }}>
-                            <h2 id="parent-modal-title">Confirm</h2>
+                          <Box sx={{ ...style, minWidth: 400, whiteSpace:'pre-line' }}>
+                            <h2 id="parent-modal-title">{t('page.tracking.table.modal.confirm.title')}</h2>
                             <p id="parent-modal-description">
-                              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+                            {t('page.tracking.table.modal.confirm.text')}
                             </p>
                             <ConfirmChildModal />
                           </Box>

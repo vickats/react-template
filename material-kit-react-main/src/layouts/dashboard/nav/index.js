@@ -56,7 +56,7 @@ export default function Nav({ openNav, onCloseNav }) {
     <Scrollbar
       sx={{
         height: 1,
-        '& .simplebar-content': { height: 1, display: 'flex', flexDirection: 'column' },
+        '& .simplebar-content': { height: 1, display: 'flex', flexDirection: 'column' },  backgroundColor: '#2a374a'
       }}
     >
       <Box sx={{ px: 2.5, py: 3, display: 'inline-flex' }}>{/* <Logo /> */}</Box>
@@ -67,11 +67,11 @@ export default function Nav({ openNav, onCloseNav }) {
             <Avatar src={account.photoURL} alt="photoURL" />
 
             <Box sx={{ ml: 2 }}>
-              <Typography variant="subtitle2" sx={{ color: 'text.primary' }}>
+              <Typography variant="subtitle2" sx={{ color: 'white' /* 'text.primary' */ }}>
                 {account.displayName}
               </Typography>
 
-              <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+              <Typography variant="body2" sx={{ color: '#929ca5' /* 'text.secondary' */  }}>
                 {account.role}
               </Typography>
             </Box>
@@ -79,7 +79,7 @@ export default function Nav({ openNav, onCloseNav }) {
         </Link>
       </Box>
 
-      <NavSection data={navConfig} />
+      <NavSection data={navConfig} sx={{'& .MuiListItemText-root':{color:'white'}}}/>
 
       <Box sx={{ flexGrow: 1 }} />
     </Scrollbar>
@@ -90,7 +90,8 @@ export default function Nav({ openNav, onCloseNav }) {
       component="nav"
       sx={{
         flexShrink: { lg: 0 },
-        width: { lg: NAV_WIDTH },
+        width: { lg: NAV_WIDTH }, 
+        color: 'white'      
       }}
     >
       {isDesktop ? (
@@ -101,9 +102,10 @@ export default function Nav({ openNav, onCloseNav }) {
             sx: {
               width: NAV_WIDTH,
               bgcolor: 'background.default',
-              borderRightStyle: 'dashed',
+              borderRightStyle: 'dashed',              
             },
           }}
+          sx={{'& MuiListItemText-root':{color:'white'}}}
         >
           {renderContent}
         </Drawer>

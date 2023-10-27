@@ -147,7 +147,31 @@ i18n
                   title: 'Results per page:'
                 },
                 modal:{
-                  
+                  nf:{
+                    title:'Invoice',
+                    options:{
+                      share:'Share',
+                      print:'Print'
+                    },
+                    btn:{
+                      close:'Close'
+                    }
+                  },
+                  confirm:{
+                    title:'Confirm delivery',
+                    text:'Do you want to confirm delivery? \n\n After confirmation, this tracking will be closed and the operator is responsible for any discrepancies.',
+                    btn:{
+                      confirm:'Yes, I confirm',
+                      close:'No, I do not confirm '
+                    },
+                    success:{
+                      title:'Delivery confirmed',
+                      text:'The order #41555 delivery was confirmed. \n\n The subsidiary in charge will receive a notification about this order status and its details.',
+                      btn:{
+                        close:'Close'
+                      }
+                    }
+                  }                 
                 }
               },
             },
@@ -333,7 +357,7 @@ i18n
                 },
                 pagination:{
                   title: 'Resultados por página:'
-                }
+                },
               }
             },
             tracking: {
@@ -351,7 +375,7 @@ i18n
                 row:{
                   status:{
                     cancelled:'Cancelado',
-                    ontransit:'Em trânsito',
+                    ontransit:'Em transito',
                     delivered:'Entregue',
                     delayed:'Atrasado',
                   },
@@ -376,7 +400,31 @@ i18n
                   title: 'Resultados por página:'
                 },
                 modal:{
-                  
+                  nf:{
+                    title:'Nota Fiscal',
+                    options:{
+                      share:'Compartilhar',
+                      print:'Imprimir'
+                    },
+                    btn:{
+                      close:'Fechar'
+                    }
+                  },
+                  confirm:{
+                    title:'Confirmar entrega',
+                    text:'Deseja confirmar essa entrega ? \n\n Após a confirmação, esse rastreamento será encerrado e é de responsabilidade do operador qualquer divergência.',
+                    btn:{
+                      confirm:'Sim, confirmar',
+                      close:'Não confirmar '
+                    },
+                    success:{
+                      title:'Entrega confirmada',
+                      text:'A entrega do pedido #41555 foi confirmada. \n\n O distribuidor encarregado irá receber uma notificação sobre o status desse pedido e seus detalhes.',
+                      btn:{
+                        close:'Fechar'
+                      }
+                    }
+                  }          
                 }
               }            
             },
@@ -604,7 +652,33 @@ i18n
                 pagination:{
                   title: 'Resultados por página:'
                 },
-                
+                modal: {
+                  nf:{
+                    title:'Factura',
+                    options:{
+                      share:'Compartir',
+                      print:'Imprimir'
+                    },
+                    btn:{
+                      close:'Cerrar'
+                    }
+                  },
+                  confirm:{
+                    title:'Confirmar entrega',
+                    text:'¿Quieres confirmar esta entrega? \n\n Después de la confirmación, este rastreo se cerrará y el operador será responsable de cualquier discrepancia.',
+                    btn:{
+                      confirm:'Sí, confirmar',
+                      close:'No confirmar '
+                    },
+                    success:{
+                      title:'Entrega confirmada',
+                      text:'Se ha confirmado la entrega del pedido n.º 41555. \n\n El distribuidor responsable recibirá una notificación sobre el estado de este pedido y sus detalles.',
+                      btn:{
+                        close:'Cerrar'
+                      }
+                    }
+                  }     
+                }
               }
             },
             settings:{
