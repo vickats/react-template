@@ -97,15 +97,7 @@ export default function AccountSettings() {
         <TextField disabled id="outlined-required" variant="outlined" label={t('page.settings.myaccount.fields.permission')} palceholder={t('page.settings.myaccount.fields.permission')} value={permission} defaultValue={permission} />
       </div>
 
-      <div style={{ margin: 8 }}>
-        <FormHelperText>
-          {t('page.settings.helperText')}
-        </FormHelperText>
-        <Button variant="contained" type="submit" sx={{ my: 2 }}>
-          {' '}
-          {t('page.settings.btn.save')}
-        </Button>
-      </div>
+      
     </Box>
   );
 }

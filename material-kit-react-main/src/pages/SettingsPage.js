@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { Container, Stack, Typography } from '@mui/material';
+import { Container, Stack, Typography, Grid, FormHelperText, Button } from '@mui/material';
 
 // i18n
 import { useTranslation, Trans } from 'react-i18next';
@@ -23,6 +23,7 @@ export default function SettingsPage() {
         </Stack>
 
         <Settings />
+        
       </Container>
     </>
   );

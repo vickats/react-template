@@ -104,6 +104,23 @@ i18n
                 },
                 pagination:{
                   title: 'Results per page:'
+                },
+                modal:{
+                  delete:{
+                    title:'Confirm deletion',
+                    text:'Do you want to confirm delivery? \n\n After confirmation, this tracking will be closed and the operator is responsible for any discrepancies.',
+                    btn:{
+                      confirm:'Yes, I confirm',
+                      close:'No, I do not confirm '
+                    },
+                    success:{
+                      title:'Deletion confirmed',
+                      text:'The order #41555 deletion was confirmed. \n\n The storage and the subsidiary in charge will receive a notification about this order status and its details.',
+                      btn:{
+                        close:'Close'
+                      }
+                    }
+                  }
                 }
               },
             },
@@ -141,6 +158,8 @@ i18n
                   options:{
                     share:'Share',
                     excel:'Download Excel',
+                    edit:'Edit',
+                    delete:'Delete',
                   }
                 },
                 pagination:{
@@ -167,6 +186,21 @@ i18n
                     success:{
                       title:'Delivery confirmed',
                       text:'The order #41555 delivery was confirmed. \n\n The subsidiary in charge will receive a notification about this order status and its details.',
+                      btn:{
+                        close:'Close'
+                      }
+                    }
+                  },
+                  delete:{
+                    title:'Confirm deletion',
+                    text:'Do you want to confirm delivery? \n\n After confirmation, this tracking will be closed and the operator is responsible for any discrepancies.',
+                    btn:{
+                      confirm:'Yes, I confirm',
+                      close:'No, I do not confirm '
+                    },
+                    success:{
+                      title:'Deletion confirmed',
+                      text:'The order #41555 deletion was confirmed. \n\n The storage and the subsidiary in charge will receive a notification about this order status and its details.',
                       btn:{
                         close:'Close'
                       }
@@ -264,6 +298,15 @@ i18n
               },
               privacy:{
                 tab:'Privacy & Security',
+                options:{
+                  all:'All options',
+                  store:'Allow my information to be stored',
+                  share:'Allow my information to be shared with third-party partners',
+                  location:'Allow my location to be access when asked',
+                  camera:'Allow my camera to be access when asked',
+                  mic:'Allow my microphone to be access when asked',
+                  docs:'Allow my documents/images to be access when asked'
+                }
               },
               helperText:'Some information are managed by your company. To change it, contact your support.',
               btn:{
@@ -358,6 +401,23 @@ i18n
                 pagination:{
                   title: 'Resultados por página:'
                 },
+                modal:{
+                  delete:{
+                    title:'Confirmar exclusão',
+                    text:'Deseja confirmar essa exclusão ? \n\n Após a confirmação, esse rastreamento será encerrado e é de responsabilidade do operador qualquer divergência.',
+                    btn:{
+                      confirm:'Sim, confirmar',
+                      close:'Não, não confirmar'
+                    },
+                    success:{
+                      title:'Exclusão confirmada',
+                      text:'A exclusão do pedido #41555 foi confirmada. \n\n O distribuidor e a filial encarregados irão receber uma notificação sobre o status desse pedido e seus detalhes.',
+                      btn:{
+                        close:'Fechar'
+                      }
+                    }
+                  } 
+                }
               }
             },
             tracking: {
@@ -394,6 +454,8 @@ i18n
                   options:{
                     share:'Compartilhar',
                     excel:'Baixar Excel',
+                    edit:'Editar',
+                    delete:'Deletar',
                   }
                 },
                 pagination:{
@@ -419,12 +481,27 @@ i18n
                     },
                     success:{
                       title:'Entrega confirmada',
-                      text:'A entrega do pedido #41555 foi confirmada. \n\n O distribuidor encarregado irá receber uma notificação sobre o status desse pedido e seus detalhes.',
+                      text:'A entrega do pedido #41555 foi confirmada. \n\n O distribuidor e a filial encarregados irá receber uma notificação sobre o status desse pedido e seus detalhes.',
                       btn:{
                         close:'Fechar'
                       }
                     }
-                  }          
+                  },
+                  delete:{
+                    title:'Confirmar exclusão',
+                    text:'Deseja confirmar essa exclusão ? \n\n Após a confirmação, esse rastreamento será encerrado e é de responsabilidade do operador qualquer divergência.',
+                    btn:{
+                      confirm:'Sim, confirmar',
+                      close:'Não, não confirmar'
+                    },
+                    success:{
+                      title:'Exclusão confirmada',
+                      text:'A exclusão do pedido #41555 foi confirmada. \n\n O distribuidor e a filial encarregados irão receber uma notificação sobre o status desse pedido e seus detalhes.',
+                      btn:{
+                        close:'Fechar'
+                      }
+                    }
+                  }             
                 }
               }            
             },
@@ -517,6 +594,15 @@ i18n
               },
               privacy:{
                 tab:'Privacidade & Segurança',
+                options:{
+                  all:'Todas as opções',
+                   store:'Permitir que minhas informações sejam armazenadas',
+                   share:'Permitir que minhas informações sejam compartilhadas com parceiros terceirizados',
+                   location:'Permitir que minha localização seja acessada quando solicitado',
+                   camera:'Permitir que minha câmera seja acessada quando solicitado',
+                   mic:'Permitir que meu microfone seja acessado quando solicitado',
+                   docs:'Permitir que meus documentos/imagens sejam acessados quando solicitado'
+                }
               },
               helperText:'Algumas informações são gerenciadas pela sua empresa. Para alterá-las, entre em contato com seu suporte.',
               btn:{
@@ -605,11 +691,28 @@ i18n
                   },
                   options:{
                     share:'Compartir',
-                    excel:'Descargar Excel',
+                    excel:'Descargar Excel',                    
                   }
                 },
                 pagination:{
                   title: 'Resultados por página:'
+                },
+                modal:{
+                  delete:{
+                    title:'Confirmar eliminacíon',
+                    text:'¿Quieres confirmar esta eliminación? \n\nDespués de la confirmación, este seguimiento se cerrará y cualquier discrepancia será responsabilidad del operador.',
+                    btn:{
+                      confirm:'Sí, confirmar',
+                      close:'No confirmar '
+                    },
+                    success:{
+                      title:'Eliminacíon confirmada',
+                      text:'Se ha confirmado la eliminación del pedido n.º 41555. \n\nEl distribuidor responsable y la filial recibirán una notificación sobre el estado de este pedido y sus detalles.',
+                      btn:{
+                        close:'Cerrar'
+                      }
+                    }
+                  } 
                 }
               }
             },
@@ -647,6 +750,26 @@ i18n
                   options:{
                     share:'Compartir',
                     excel:'Descargar Excel',
+                    edit:'Editar',
+                    delete:'Borrar',
+                    filter:{
+                      title:'Filtrar por',
+                      category:{
+                        status:{
+                          title:'',
+                          delivered:'',
+                          ontransit:'',
+                          delayed:'',
+                          cancelled:''
+                          
+                        },
+                        invoice:{
+                          title:'',
+                          file:'',
+                          toupload:''
+                        }
+                      }
+                    }
                   }
                 },
                 pagination:{
@@ -673,6 +796,21 @@ i18n
                     success:{
                       title:'Entrega confirmada',
                       text:'Se ha confirmado la entrega del pedido n.º 41555. \n\n El distribuidor responsable recibirá una notificación sobre el estado de este pedido y sus detalles.',
+                      btn:{
+                        close:'Cerrar'
+                      }
+                    }
+                  },
+                  delete:{
+                    title:'Confirmar eliminacíon',
+                    text:'¿Quieres confirmar esta eliminación? \n\nDespués de la confirmación, este seguimiento se cerrará y cualquier discrepancia será responsabilidad del operador.',
+                    btn:{
+                      confirm:'Sí, confirmar',
+                      close:'No confirmar '
+                    },
+                    success:{
+                      title:'Eliminacíon confirmada',
+                      text:'Se ha confirmado la eliminación del pedido n.º 41555. \n\nEl distribuidor responsable y la filial recibirán una notificación sobre el estado de este pedido y sus detalles.',
                       btn:{
                         close:'Cerrar'
                       }
@@ -770,6 +908,15 @@ i18n
               },
               privacy:{
                 tab:'Privacidad y Seguridad',
+                options:{
+                  all:'Todas las opciones',
+                  store:'Permitir que mi información sea almacenada',
+                  share:'Permitir que mi información se comparta con socios externos',
+                  location:'Permitir acceso a mi ubicación cuando se me solicite',
+                  camera:'Permitir acceso a mi cámara cuando se me solicite',
+                  mic:'Permitir acceso a mi micrófono cuando se me solicite',
+                  docs:'Permitir el acceso a mis documentos/imágenes cuando se me solicite'
+                }
               },
               helperText:'Parte de la información es gestionada por su empresa. Para cambiarlo, contacta con tu soporte.',
               btn:{

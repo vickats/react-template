@@ -11,6 +11,7 @@ import {
   Paper,
   Avatar,
   Button,
+  Modal,
   Popover,
   Checkbox,
   TableRow,
@@ -153,6 +154,87 @@ export default function UserPage() {
 
   const isNotFound = !filteredUsers.length && !!filterName;
 
+  
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    // border: '2px solid #000',
+    boxShadow: 12,
+    borderRadius: 2,
+    pt: 2,
+    px: 4,
+    pb: 3,
+  };
+  const [openDelete, setOpenDelete] = useState(false);
+
+  const handleOpenDelete = () => {
+    setOpenDelete(true)
+  };
+  const handleCloseDelete = () => {
+    setOpenDelete(false)
+  };
+
+  // Confirm Delete Modal
+  function ConfirmDeleteModal() {
+    const [openConfirmDelete, setOpenConfirmDelete] = useState(false);
+
+    const handleOpenConfirmDelete = () => {
+      setOpenConfirmDelete(true);
+    };
+    const handleCloseConfirmDelete = () => {
+      setOpenConfirmDelete(false);
+    };
+
+    return (
+      <>
+        <Stack align="center" direction="row" justifyContent={'center'} spacing={3} sx={{mt:4}}>
+          <Button variant="contained" color="success" onClick={handleOpenConfirmDelete}>
+          {t('page.tracking.table.modal.delete.btn.confirm')}
+          </Button>
+          <Button variant="outlined" onClick={handleCloseConfirmDelete}>
+          {t('page.tracking.table.modal.delete.btn.close')}
+          </Button>
+        </Stack>
+        <Modal
+          open={openConfirmDelete}
+          onClose={handleCloseConfirmDelete}
+          aria-labelledby="child-modal-title"
+          aria-describedby="child-modal-description"
+          sx={{ '& .MuiBackdrop-root.MuiModal-backdrop': { backgroundColor: 'rgba(33, 43, 54, 0.1)' } }}
+        >
+          <Box sx={{ ...style, minWidth: 400 }}>
+            <Stack direction="row" spacing={2} alignItems={'center'} pt={2}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24">
+                <g id="evaCheckmarkCircle2Fill0">
+                  <g id="evaCheckmarkCircle2Fill1">
+                    <path
+                      id="evaCheckmarkCircle2Fill2"
+                      fill="#229a16"
+                      d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm4.3 7.61l-4.57 6a1 1 0 0 1-.79.39a1 1 0 0 1-.79-.38l-2.44-3.11a1 1 0 0 1 1.58-1.23l1.63 2.08l3.78-5a1 1 0 1 1 1.6 1.22Z"
+                    />
+                  </g>
+                </g>
+              </svg>
+              <h2 id="child-modal-title">{t('page.tracking.table.modal.delete.success.title')}</h2>
+            </Stack>
+            <p id="child-modal-description" style={{whiteSpace:'pre-line'}}>
+            {t('page.tracking.table.modal.delete.success.text')}{' '}
+            </p>
+            <Stack direction="column" justifyContent="center" alignItems="center">
+              <Button onClick={handleCloseDelete} variant="outlined">
+              {t('page.tracking.table.modal.delete.success.btn.close')}
+              </Button>
+            </Stack>
+          </Box>
+        </Modal>
+      </>
+    );
+  }
+
   return (
     <>
       <Helmet>
@@ -288,15 +370,32 @@ export default function UserPage() {
         }}
       >
         <MenuItem >
-          <Iconify icon={'eva:share-outline'}  sx={{ mr: 2}}/>
-          {t('page.user.table.row.options.share')}
+          <Iconify icon={'eva:edit-2-outline'} sx={{ mr: 2 }} />
+          {t('page.tracking.table.row.options.edit')}
         </MenuItem>
 
-        <MenuItem sx={{ color: 'error.main' }}>
-          <Iconify icon={'tabler:file-spreadsheet'}  sx={{ mr: 2 }}/>
-          {t('page.user.table.row.options.excel')}
+        <MenuItem onClick={handleOpenDelete} sx={{ color: 'error.main'}}>
+          <Iconify icon={'mingcute:delete-2-line'} sx={{ mr: 2 }}/>
+          {t('page.tracking.table.row.options.delete')}
         </MenuItem>
       </Popover>
+
+      {/* Modal Delete */}
+      <Modal
+        open={openDelete}
+        onClose={handleCloseDelete}
+        aria-labelledby="parent-modal-title"
+        aria-describedby="parent-modal-description"
+        sx={{ '& .MuiBackdrop-root.MuiModal-backdrop': { backgroundColor: 'rgba(33, 43, 54, 0.1)' } }}
+      >
+        <Box sx={{ ...style, minWidth: 400, whiteSpace:'pre-line' }}>
+          <h2 id="parent-modal-title">{t('page.tracking.table.modal.delete.title')}</h2>
+          <p id="parent-modal-description">
+          {t('page.tracking.table.modal.delete.text')}
+          </p>
+          <ConfirmDeleteModal/>
+        </Box>
+      </Modal>
     </>
   );
 }

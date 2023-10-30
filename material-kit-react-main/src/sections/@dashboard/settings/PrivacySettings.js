@@ -15,21 +15,27 @@ import {
   FormHelperText,
   Button,
 } from '@mui/material';
+import { Icon } from '@iconify/react';
 import { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import { Icon } from '@iconify/react';
 import * as React from 'react';
+// i18n
+import { useTranslation, Trans } from 'react-i18next';
+import i18next from '../../../i18n';
+
 
 const options = [
-  'Allow my information to be stored',
-  'Allow my information to be shared with third-party partners',
-  'Allow my location to be access when asked',
-  'Allow my camera to be access when asked',
-  'Allow my microphone to be access when asked',
-  'Allow my documents/images to be access when asked',
+  i18next.t('page.settings.privacy.options.store'),
+  i18next.t('page.settings.privacy.options.share'),
+  i18next.t('page.settings.privacy.options.location'),
+  i18next.t('page.settings.privacy.options.camera'),
+  i18next.t('page.settings.privacy.options.mic'),
+  i18next.t('page.settings.privacy.options.docs'),
+
 ];
 
 export default function UserNotification() {
+  const {t} = useTranslation();
   const [selected, setSelected] = useState([]);
   const isAllSelected = options.length > 0 && selected.length === options.length;
 
@@ -65,22 +71,13 @@ export default function UserNotification() {
       <Grid>
         <Stack sx={{ display: 'flex', flexDirection: 'row', gap: '3rem' }}>
           <FormControlLabel
-            label="All options"
+            label={t('page.settings.privacy.options.all')}
             control={<Checkbox value="all" checked={isAllSelected} onChange={handleChange} />}
           />
           <FormControl>
             <FormGroup>{listItem}</FormGroup>
           </FormControl>
         </Stack>
-      </Grid>
-      <Grid sx={{ mt: 3 }}>
-        <FormHelperText>
-          Some information are managed by your company. To change it, contact your support.
-        </FormHelperText>
-        <Button variant="contained" type="submit" sx={{ my: 2 }}>
-          {' '}
-          Save
-        </Button>
       </Grid>
     </Box>
   );

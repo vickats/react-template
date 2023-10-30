@@ -60,15 +60,6 @@ export default function NotificationSettings() {
       <Grid>
         <UserNotification />
       </Grid>
-      <Grid>
-        <FormHelperText>
-        {t('page.settings.helperText')}
-        </FormHelperText>
-        <Button variant="contained" type="submit" sx={{ my: 2 }}>
-          {' '}
-          {t('page.settings.btn.save')}
-        </Button>
-      </Grid>
     </Box>
   );
 }
