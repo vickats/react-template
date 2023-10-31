@@ -296,17 +296,7 @@ export default function TrackingPage() {
         >
           <Box sx={{ ...style, minWidth: 400 }}>
             <Stack direction="row" spacing={2} alignItems={'center'} pt={2}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24">
-                <g id="evaCheckmarkCircle2Fill0">
-                  <g id="evaCheckmarkCircle2Fill1">
-                    <path
-                      id="evaCheckmarkCircle2Fill2"
-                      fill="#229a16"
-                      d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm4.3 7.61l-4.57 6a1 1 0 0 1-.79.39a1 1 0 0 1-.79-.38l-2.44-3.11a1 1 0 0 1 1.58-1.23l1.63 2.08l3.78-5a1 1 0 1 1 1.6 1.22Z"
-                    />
-                  </g>
-                </g>
-              </svg>
+              <Iconify icon={'eva:checkmark-circle-2-fill'} color="#229a16" width="2.25rem" height="2.25rem" />
               <h2 id="child-modal-title">{t('page.tracking.table.modal.confirm.success.title')}</h2>
             </Stack>
             <p id="child-modal-description" style={{whiteSpace:'pre-line'}}>
@@ -353,17 +343,7 @@ export default function TrackingPage() {
         >
           <Box sx={{ ...style, minWidth: 400 }}>
             <Stack direction="row" spacing={2} alignItems={'center'} pt={2}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24">
-                <g id="evaCheckmarkCircle2Fill0">
-                  <g id="evaCheckmarkCircle2Fill1">
-                    <path
-                      id="evaCheckmarkCircle2Fill2"
-                      fill="#229a16"
-                      d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm4.3 7.61l-4.57 6a1 1 0 0 1-.79.39a1 1 0 0 1-.79-.38l-2.44-3.11a1 1 0 0 1 1.58-1.23l1.63 2.08l3.78-5a1 1 0 1 1 1.6 1.22Z"
-                    />
-                  </g>
-                </g>
-              </svg>
+              <Iconify icon={'eva:checkmark-circle-2-fill'} color="#229a16" width="2.25rem" height="2.25rem" />
               <h2 id="child-modal-title">{t('page.tracking.table.modal.delete.success.title')}</h2>
             </Stack>
             <p id="child-modal-description" style={{whiteSpace:'pre-line'}}>

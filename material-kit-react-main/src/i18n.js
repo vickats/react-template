@@ -108,16 +108,50 @@ i18n
                 modal:{
                   delete:{
                     title:'Confirm deletion',
-                    text:'Do you want to confirm delivery? \n\n After confirmation, this tracking will be closed and the operator is responsible for any discrepancies.',
+                    text:'Do you want to confirm delivery? \n\n After confirmation, this user will no longer have access and the operator is responsible for any discrepancies.',
                     btn:{
                       confirm:'Yes, I confirm',
                       close:'No, I do not confirm '
                     },
                     success:{
                       title:'Deletion confirmed',
-                      text:'The order #41555 deletion was confirmed. \n\n The storage and the subsidiary in charge will receive a notification about this order status and its details.',
+                      text:'The user was removed. \n\n The user no longer has access to the system and a new registration must be created to do so.',
                       btn:{
                         close:'Close'
+                      }
+                    }
+                  },
+                  create:{
+                    title:'Create new user',
+                    fields:{
+                      name:'Name',
+                      lastname:'Lastname',
+                      email:'Email',
+                      phoneNumber:'Phone Number',
+                      phoneMobile:'Phone Mobile',
+                      country:'Country',
+                      address:'Address',
+                      complement:'Complement',
+                      subsidiary:'Subsidiary',
+                      position:'Position',
+                      permission:'Permission'
+                    },
+                    btn:{
+                      create:'Create user',
+                      cancel:'Cancel'
+                    },
+                    confirm:{
+                      title:'Do you want to create this user ?',
+                      btn:{
+                        confirm:'Yes, create',
+                        cancel:'Back'
+                      }
+                    },
+                    success:{
+                      title:'User created',
+                      text:'A verification link will be sent to the registered email.',
+                      btn:{
+                       close:'Close' 
                       }
                     }
                   }
@@ -404,16 +438,51 @@ i18n
                 modal:{
                   delete:{
                     title:'Confirmar exclusão',
-                    text:'Deseja confirmar essa exclusão ? \n\n Após a confirmação, esse rastreamento será encerrado e é de responsabilidade do operador qualquer divergência.',
+                    text:'Deseja confirmar essa exclusão ? \n\n Após a confirmação, esse usuário não terá mais acesso e é de responsabilidade do operador qualquer divergência.',
                     btn:{
                       confirm:'Sim, confirmar',
                       close:'Não, não confirmar'
                     },
                     success:{
                       title:'Exclusão confirmada',
-                      text:'A exclusão do pedido #41555 foi confirmada. \n\n O distribuidor e a filial encarregados irão receber uma notificação sobre o status desse pedido e seus detalhes.',
+                      text:'O usuário foi excluído. \n\n O usuário não tem mais acesso ao sistema e para tal deverá ser criado um novo cadastro.',
                       btn:{
                         close:'Fechar'
+                      }
+                    }
+                  },
+                  create:{
+                    title:'Criar novo usuário',
+                    text:'Criar novo usuário',
+                    fields:{
+                      name:'Nome',
+                      lastname:'Sobrenome',
+                      email:'Email',
+                      phoneNumber:'Telefone',
+                      phoneMobile:'Celular',
+                      country:'País',
+                      address:'Endereço',
+                      complement:'Complemento',
+                      subsidiary:'Filial',
+                      position:'Ocupação',
+                      permission:'Acesso'
+                    },
+                    btn:{
+                      create:'Criar usuário',
+                      cancel:'Cancelar'
+                    },
+                    confirm:{
+                      title:'Deseja criar este usuário ?',
+                      btn:{
+                        confirm:'Sim, criar',
+                        cancel:'Voltar'
+                      }
+                    },
+                    success:{
+                      title:'Usuário criado',
+                      text:'Será enviado um link de verificação para o email informado.',
+                      btn:{
+                       close:'Fechar' 
                       }
                     }
                   } 
@@ -700,16 +769,50 @@ i18n
                 modal:{
                   delete:{
                     title:'Confirmar eliminacíon',
-                    text:'¿Quieres confirmar esta eliminación? \n\nDespués de la confirmación, este seguimiento se cerrará y cualquier discrepancia será responsabilidad del operador.',
+                    text:'¿Quieres confirmar esta eliminación? \n\nDespués de la confirmación, este usuario ya no tendrá acceso y cualquier discrepancia será responsabilidad del operador.',
                     btn:{
                       confirm:'Sí, confirmar',
                       close:'No confirmar '
                     },
                     success:{
                       title:'Eliminacíon confirmada',
-                      text:'Se ha confirmado la eliminación del pedido n.º 41555. \n\nEl distribuidor responsable y la filial recibirán una notificación sobre el estado de este pedido y sus detalles.',
+                      text:'El usuario ha sido eliminado. \n\nEl usuario ya no tiene acceso al sistema y para ello deberá crear un nuevo registro.',
                       btn:{
                         close:'Cerrar'
+                      }
+                    }
+                  },
+                  create:{
+                    title:'Crear nuevo usuario',
+                    fields:{
+                      name:'Nombre',
+                      lastname:'Apellido',
+                      email:'Email',
+                      phoneNumber:'Teléfono',
+                      phoneMobile:'Teléfono móvil',
+                      country:'País',
+                      address:'Direccíon',
+                      complement:'Complementar',
+                      subsidiary:'Subsidiaria',
+                      position:'Ocupación',
+                      permission:'Acceso'
+                    },
+                    btn:{
+                      create:'Crear usuario',
+                      cancel:'Cancelar'
+                    },
+                    confirm:{
+                      title:'¿Quieres crear este usuario?',
+                      btn:{
+                        confirm:'Sí, crear',
+                        cancel:'Volver'
+                      }
+                    },
+                    success:{
+                      title:'Usuario creado',
+                      text:'Se enviará un enlace de verificación al correo electrónico proporcionado.',
+                      btn:{
+                       close:'Cerrar' 
                       }
                     }
                   } 

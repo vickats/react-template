@@ -13,12 +13,19 @@ import {
   Button,
   Modal,
   Popover,
+  Grid,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
   Checkbox,
   TableRow,
   MenuItem,
   TableBody,
   TableCell,
   Container,
+  TextField,
   Typography,
   IconButton,
   TableContainer,
@@ -208,17 +215,7 @@ export default function UserPage() {
         >
           <Box sx={{ ...style, minWidth: 400 }}>
             <Stack direction="row" spacing={2} alignItems={'center'} pt={2}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24">
-                <g id="evaCheckmarkCircle2Fill0">
-                  <g id="evaCheckmarkCircle2Fill1">
-                    <path
-                      id="evaCheckmarkCircle2Fill2"
-                      fill="#229a16"
-                      d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm4.3 7.61l-4.57 6a1 1 0 0 1-.79.39a1 1 0 0 1-.79-.38l-2.44-3.11a1 1 0 0 1 1.58-1.23l1.63 2.08l3.78-5a1 1 0 1 1 1.6 1.22Z"
-                    />
-                  </g>
-                </g>
-              </svg>
+              <Iconify icon={'eva:checkmark-circle-2-fill'} color="#229a16" width="2.25rem" height="2.25rem" />
               <h2 id="child-modal-title">{t('page.tracking.table.modal.delete.success.title')}</h2>
             </Stack>
             <p id="child-modal-description" style={{whiteSpace:'pre-line'}}>
@@ -235,6 +232,134 @@ export default function UserPage() {
     );
   }
 
+  // New User 
+  const [openNewUser, setOpenNewUser] = useState(false);
+
+  const handleOpenNewUser = () => {
+    setOpenNewUser(true)
+  };
+  const handleCloseNewUser = () => {
+    setOpenNewUser(false)
+  };
+
+  // Confirm/Success New User Modal
+  function ConfirmNewUserModal() {
+    const [openConfirmNewUser, setOpenConfirmNewUser] = useState(false);
+
+    const handleOpenConfirmNewUser = () => {
+      setOpenConfirmNewUser(true);
+    };
+    const handleCloseConfirmNewUser = () => {
+      setOpenConfirmNewUser(false);
+    };
+
+    const [openSuccessNewUser, setOpenSuccessNewUser] = useState(false);
+
+    const handleOpenSuccessNewUser = () => {
+      setOpenSuccessNewUser(true);
+    };
+    const handleCloseSuccessNewUser = () => {
+      setOpenSuccessNewUser(false);
+    };
+
+    return (
+      <>
+        <Stack align="center" direction="row" justifyContent={'center'} spacing={3} sx={{mt:4}}>
+          <Button variant="contained" onClick={handleOpenConfirmNewUser}>
+            {t('page.user.table.modal.create.btn.create')}
+          </Button>
+          <Button variant="outlined" onClick={handleCloseNewUser}>
+            {t('page.user.table.modal.create.btn.cancel')}
+          </Button>
+        </Stack>
+
+        {/* Modal confirm */}
+        <Modal
+          open={openConfirmNewUser}
+          onClose={handleCloseConfirmNewUser}
+          aria-labelledby="child-modal-title"
+          aria-describedby="child-modal-description"
+          sx={{ '& .MuiBackdrop-root.MuiModal-backdrop': { backgroundColor: 'rgba(33, 43, 54, 0.1)' } }}
+        >
+          <Box sx={{ ...style, minWidth: 450 }}>
+            <Stack direction="row" spacing={2} alignItems={'center'} pt={2}>
+              <Iconify icon={'eva:alert-triangle-fill'} color="#efa61b" width="2.25rem" height="2.25rem" />
+              <h2 id="child-modal-title">{t('page.user.table.modal.create.confirm.title')}</h2>
+            </Stack>
+            <List sx={{display: 'flex', flexDirection: 'row'}}>
+              <ListItem disablePadding>
+                <ListItemText primary="Name" secondary="Name"/>
+              </ListItem>
+              <ListItem disablePadding>
+                <ListItemText primary="ID" secondary="123456"/>
+              </ListItem>
+            </List>
+            <List sx={{display: 'flex', flexDirection: 'row'}}>
+              <ListItem disablePadding>
+                <ListItemText primary="Email" secondary="name@mail.com"/>
+              </ListItem>
+              <ListItem disablePadding>
+                <ListItemText primary="Subsidiary" secondary="Cajamar"/>
+              </ListItem>              
+            </List>
+            <List>
+              <ListItem disablePadding>
+                <ListItemText primary="Level" secondary="L1"/>
+              </ListItem>
+            </List>
+
+            <Stack align="center" direction="row" justifyContent={'center'} spacing={3} sx={{mt:4}}>
+              <Button onClick={handleOpenSuccessNewUser} variant="contained">
+              {t('page.user.table.modal.create.confirm.btn.confirm')}
+              </Button>
+              <Button onClick={handleCloseConfirmNewUser} variant="outlined">
+              {t('page.user.table.modal.create.confirm.btn.cancel')}
+              </Button>
+            </Stack>
+          </Box>
+        </Modal>
+
+        {/* Modal success */}
+        <Modal
+          open={openSuccessNewUser}
+          onClose={handleCloseSuccessNewUser}
+          aria-labelledby="child-modal-title"
+          aria-describedby="child-modal-description"
+          sx={{ '& .MuiBackdrop-root.MuiModal-backdrop': { backgroundColor: 'rgba(33, 43, 54, 0.1)' } }}
+        >
+          <Box sx={{ ...style, minWidth: 400 }}>
+            <Stack direction="row" spacing={2} alignItems={'center'} pt={2}>
+              <Iconify icon={'eva:checkmark-circle-2-fill'} color="#229a16" width="2.25rem" height="2.25rem" />
+              <h2 id="child-modal-title">{t('page.user.table.modal.create.success.title')}</h2>
+            </Stack>
+            <p id="child-modal-description" style={{whiteSpace:'pre-line'}}>
+            {t('page.user.table.modal.create.success.text')}{' '}
+            </p>
+            <Stack direction="column" justifyContent="center" alignItems="center">
+              <Button onClick={handleCloseNewUser} variant="outlined">
+              {t('page.user.table.modal.create.success.btn.close')}
+              </Button>
+            </Stack>
+          </Box>
+        </Modal>
+        
+      </>
+    );
+  }
+
+  const [name, setName] = useState();
+  const [lastname, setLastname] = useState();
+  const [id, setId] = useState();
+  const [email, setEmail] = useState();
+  const [phoneNumber, setPhoneNumber] = useState();
+  const [phoneMobile, setPhoneMobile] = useState();
+  const [country, setCountry] = useState();
+  const [address, setAddress] = useState();
+  const [complement, setComplement] = useState();
+  const [subsidiary, setSubsidiary] = useState();
+  const [jobPosition, setJobPosition] = useState();
+  const [permission, setPermission] = useState();
+
   return (
     <>
       <Helmet>
@@ -246,10 +371,94 @@ export default function UserPage() {
           <Typography variant="h4" gutterBottom>
             {t('page.user.title')}
           </Typography>
-          <Button variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
+          <Button onClick={handleOpenNewUser} variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
             {t('page.user.btn.newuser')}
           </Button>
         </Stack>
+
+        {/* Modal New User */}
+        <Modal
+          open={openNewUser}
+          onClose={handleCloseNewUser}
+          aria-labelledby="parent-modal-title"
+          aria-describedby="parent-modal-description"
+          sx={{ '& .MuiBackdrop-root.MuiModal-backdrop': { backgroundColor: 'rgba(33, 43, 54, 0.1)' } }}
+        >
+          <Box sx={{ ...style, minWidth: 800, whiteSpace:'pre-line' }}>
+            <h2 id="parent-modal-title">{t('page.user.table.modal.create.title')}</h2>
+            <Box
+              component="form"
+              sx={{
+                '& .MuiTextField-root': { m: 1, my: 2, width: '30ch' },
+              }}
+              noValidate={false}
+              autoComplete="off"
+            >
+              <Grid display='flex'>
+                <TextField id="outlined-required" variant="outlined" label={t('page.user.table.modal.create.fields.name')} placeholder={t('page.user.table.modal.create.fields.name')} value={name}/>
+
+                <TextField id="outlined-required" variant="outlined" label={t('page.user.table.modal.create.fields.lastname')}  placeholder={t('page.user.table.modal.create.fields.lastname')} value={lastname}  />
+
+                <TextField
+                  type="number"
+                  required
+                  id="outlined-required"
+                  variant="outlined"
+                  label="ID"
+                  value={id}                 
+                />
+              </Grid>
+              <Grid display="flex">
+                <TextField
+                  type="email"
+                  required
+                  id="outlined-required"
+                  variant="outlined"
+                  label="Email"
+                  value={email}
+                  
+                />
+                <TextField
+                  type="number"
+                  required
+                  id="outlined-required"
+                  variant="outlined"
+                  placeholder={t('page.user.table.modal.create.fields.phoneNumber')}
+                  label={t('page.user.table.modal.create.fields.phoneNumber')}
+                  value={phoneNumber}
+                  
+                />
+                <TextField
+                  type="number"
+                  id="outlined-required"
+                  variant="outlined"
+                  label={t('page.user.table.modal.create.fields.phoneMobile')}
+                  placeholder={t('page.user.table.modal.create.fields.phoneMobile')}
+                  value={phoneMobile}
+                  
+                />
+              </Grid>
+              <Grid display="flex">
+                <TextField required id="outlined-required" variant="outlined" label={t('page.user.table.modal.create.fields.country')} placeholder={t('page.user.table.modal.create.fields.country')} value={country}  />
+                <TextField
+                  id="outlined-required"
+                  variant="outlined"
+                  label={t('page.user.table.modal.create.fields.address')}
+                  placeholder={t('page.user.table.modal.create.fields.address')}
+                  value={address}
+                  
+                />
+                <TextField id="outlined-required" variant="outlined" label={t('page.user.table.modal.create.fields.complement')} placeholder={t('page.user.table.modal.create.fields.complement')} value={complement}  />
+              </Grid>
+              <Grid display="flex">
+                <TextField id="outlined-required" variant="outlined" label={t('page.user.table.modal.create.fields.subsidiary')} placeholder={t('page.user.table.modal.create.fields.subsidiary')} value={subsidiary}  />
+                <TextField id="outlined-required" variant="outlined" label={t('page.user.table.modal.create.fields.position')} placeholder={t('page.user.table.modal.create.fields.position')} value={jobPosition}  />
+                <TextField id="outlined-required" variant="outlined" label={t('page.user.table.modal.create.fields.permission')} palceholder={t('page.user.table.modal.create.fields.permission')} value={permission}  />
+              </Grid>
+            </Box>
+            <ConfirmNewUserModal/>
+          </Box>
+        </Modal>
 
         <Card sx={{ '& .simplebar-placeholder': { display: 'none' } }}>
           <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
