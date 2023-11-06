@@ -49,6 +49,7 @@ import apiSwapi from '../services/apiSwapi';
 // ----------------------------------------------------------------------
 // refactor i18next
 const TABLE_HEAD = [
+  { id: 'id', label: i18next.t('page.tracking.table.head.id'), alignRight: false },
   { id: 'storage', label: i18next.t('page.tracking.table.head.storage'), alignRight: false },
   { id: 'subsidiary', label: i18next.t('page.tracking.table.head.subsidiary'), alignRight: false },
   { id: 'status', label: i18next.t('page.tracking.table.head.status'), alignRight: false },
@@ -94,6 +95,8 @@ export default function TrackingPage() {
 
   const [open, setOpen] = useState(null);
 
+  const [openFileOpt, setOpenFileOpt] = useState(false);
+
   const [openFile, setOpenFile] = useState(false);
 
   const [openConfirm, setOpenConfirm] = useState(false);
@@ -116,6 +119,14 @@ export default function TrackingPage() {
 
   const handleOpenMenu = (event) => {
     setOpen(event.currentTarget);
+  };
+
+  const handleOpenFileOpt = () => {
+    setOpenFileOpt(true);
+  };
+
+  const handleCloseFileOpt = () => {
+    setOpenFileOpt(false);
   };
 
   const handleOpenDelete = () => {
@@ -347,7 +358,7 @@ export default function TrackingPage() {
               <h2 id="child-modal-title">{t('page.tracking.table.modal.delete.success.title')}</h2>
             </Stack>
             <p id="child-modal-description" style={{whiteSpace:'pre-line'}}>
-            {t('page.tracking.table.modal.delete.success.text')}{' '}
+            {t('page.tracking.table.modal.delete.success.text1')}{' '}{t('page.tracking.table.modal.delete.success.text2')}
             </p>
             <Stack direction="column" justifyContent="center" alignItems="center">
               <Button onClick={handleCloseDelete} variant="outlined">
@@ -414,16 +425,20 @@ export default function TrackingPage() {
                           <Checkbox checked={selectedUser} onChange={(event) => handleClick(event, storage)} />
                         </TableCell>
 
-                        <TableCell component="th" scope="row" padding="none">
+                        <TableCell align="left">{id}</TableCell>
+
+                        {/* <TableCell component="th" scope="row" padding="none">
                           <Stack direction="row" alignItems="center" spacing={2}>
-                            <Avatar alt={storage} src={avatarUrl} />
+                            <Avatar alt={storage} src={avatarUrl} /> 
                             <Typography variant="subtitle2" noWrap>
                               {storage}
                             </Typography>
                           </Stack>
-                        </TableCell>
+                        </TableCell> */}
 
-                        <TableCell align="left">{subsidiary}</TableCell>
+                        <TableCell align="left">{storage}</TableCell>
+
+                        <TableCell align="left">{subsidiary}</TableCell>          
 
                         <TableCell align="left">
                           <Label
@@ -475,40 +490,16 @@ export default function TrackingPage() {
                         >
                           <Box sx={{ ...style, minWidth: 800 }}>
                             <Stack sx={{display: 'flex', alignItems: 'center', flexDirection:'row', justifyContent:'space-between'}}>
-                              <h2 id="parent-modal-title">{t('page.tracking.table.modal.nf.title')}</h2> 
-                              <TableCell align="right">
-                                <IconButton size="large" color="inherit" onClick={handleOpenMenu}>
-                                  <Iconify icon={'eva:more-vertical-fill'} />
-                                </IconButton>
-                              </TableCell>
-                              <Popover
-                                open={Boolean(open)}
-                                anchorEl={open}
-                                onClose={handleCloseMenu}
-                                anchorOrigin={{ vertical: 'top', horizontal: 'left' }}
-                                transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-                                PaperProps={{
-                                  sx: {
-                                    p: 1,
-                                    width: 'auto',
-                                    '& .MuiMenuItem-root': {
-                                      px: 1,
-                                      typography: 'body2',
-                                      borderRadius: 0.75,
-                                    },
-                                  },
-                                }}
-                              >
-                                <MenuItem >
+                              <h2 id="parent-modal-title">{t('page.tracking.table.modal.nf.title')}</h2>
+                              <Stack sx={{display: 'flex', alignItems: 'center', flexDirection:'row', justifyContent:'space-between'}}>
+                                <MenuItem sx={{ borderRadius: '4.5px'}}>
                                   <Iconify icon={'eva:share-outline'} sx={{ mr: 2 }} />
-                                  {t('page.tracking.table.modal.nf.options.share')}
+                                    {t('page.tracking.table.modal.nf.options.share')}
                                 </MenuItem>
-
-                                <MenuItem sx={{ color: 'error.main'}}>
+                                <MenuItem sx={{ borderRadius: '4.5px'}}>
                                   <Iconify icon={'tabler:file-spreadsheet'} sx={{ mr: 2 }}/>
-                                  {t('page.tracking.table.modal.nf.options.print')}
-                                </MenuItem>
-                              </Popover>                        
+                                    {t('page.tracking.table.modal.nf.options.print')}
+                                </MenuItem>                                          </Stack>         
                             </Stack>
                             <Stack sx={{border:'1px solid lightgray', borderRadius: '5px'}}>
                               <br/>

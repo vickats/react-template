@@ -96,8 +96,6 @@ export default function AccountSettings() {
         <TextField disabled id="outlined-required" variant="outlined" label={t('page.settings.myaccount.fields.position')} placeholder={t('page.settings.myaccount.fields.position')} value={jobPosition} defaultValue={jobPosition} />
         <TextField disabled id="outlined-required" variant="outlined" label={t('page.settings.myaccount.fields.permission')} palceholder={t('page.settings.myaccount.fields.permission')} value={permission} defaultValue={permission} />
       </div>
-
-      
     </Box>
   );
 }

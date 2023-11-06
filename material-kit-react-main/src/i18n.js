@@ -26,6 +26,74 @@ i18n
           //   part1: 'Edit <1>src/App.js</1> and save to reload.',
           //   part2: 'Learn React',
           // },
+          signup:{
+            tab:'Sign Up | System',
+            greetings:'Hi, Welcome!',
+            form:{
+              title:'Get registered',
+              account:'Already have an account ?',
+              login:'Login',
+              name:'Name',
+              lastname:'Lastname',
+              id:'Id',
+              email:'Email address',
+              phoneNumber:'Phone Number',
+              phoneMobile:'Phone Number (Mobile)',
+              country:'Country',
+              address:'Address',
+              complement:'Complement',
+              subsidiary:'Subsidiary',
+              position:'Position',
+              helperText:'The access level will be defined by the administrator after registration approval.',
+              passwordTitle:'Register your password',
+              passwordRules:{
+                text:'The password must contain:',
+                rule1:'8 to 14 characters;',
+                rule2:'At least 1 uppercase letter;',
+                rule3:'At least 1 lowercase letter;',
+                rule4:'At least 1 number',
+              },
+              password:'Password',
+              confirmPassword:'Confirm password',
+              btn:{
+                register:'Register'
+              }
+            }
+          },
+          login:{
+            tab:'Login | System',
+            // title:'Login',
+            greetings:'Hi, Welcome back !',
+            form:{
+              title:'Sign in',
+              noaccount:'Dont have an account ?',
+              register:'Get started',
+              or:'or',
+              email:'Email address',
+              password:'Password',
+              remember:'Remember me',
+              forgot:'Forgot password ?',
+              btn:{
+                login:'Login'
+              }
+            }            
+          },
+          recover:{
+            tab:'Recovery | System',
+            // title:'Login',
+            greetings:'Hi, Welcome !',
+            form:{
+              title:'Let\'s recover your account',
+              text:'For safety, first we need to send a verification code to you email to validate your identification',
+              textcode:'Please, paste the verification code to be validated:',
+              email:'Email address',
+              code:'Code',
+              btn:{
+                send:'Send',
+                validate:'Validate'
+              }
+            }
+          },
           dashboard: {
             tab: 'Dashboard | System',
             welcome: 'Hi, Welcome back',
@@ -33,6 +101,15 @@ i18n
               home:'Dashboard',
               settings:'Settings',
               logout:'Logout',
+            },
+            notifications:{
+              title:'Notifications',
+              text1:'You have',
+              text2:'unread messages',
+              markread:'Mark all as read',
+              new:'New',
+              before:'Before that',
+              viewall:'View all'
             },
             track: {
               transit: {
@@ -100,6 +177,23 @@ i18n
                   options:{
                     share:'Share',
                     excel:'Download Excel',
+                    edit:'Edit',
+                    delete:'Delete',
+                    filter:{
+                      title:'Filter by',
+                      category:{
+                        verify:{
+                          title:'Verified',
+                          yes:'Yes',
+                          no:'No',   
+                        },
+                        status:{
+                          title:'Status',
+                          active:'Active',
+                          inactive:'Inactive'
+                        }
+                      }
+                    }
                   }
                 },
                 pagination:{
@@ -115,7 +209,7 @@ i18n
                     },
                     success:{
                       title:'Deletion confirmed',
-                      text:'The user was removed. \n\n The user no longer has access to the system and a new registration must be created to do so.',
+                      text:'The user was removed and no longer has access to the system and a new registration must be created to do so.',
                       btn:{
                         close:'Close'
                       }
@@ -134,7 +228,7 @@ i18n
                       complement:'Complement',
                       subsidiary:'Subsidiary',
                       position:'Position',
-                      permission:'Permission'
+                      permission:'Access level'
                     },
                     btn:{
                       create:'Create user',
@@ -154,6 +248,40 @@ i18n
                        close:'Close' 
                       }
                     }
+                  },
+                  edit:{
+                    title:'Edit user',
+                    fields:{
+                      name:'Name',
+                      lastname:'Lastname',
+                      email:'Email',
+                      phoneNumber:'Phone Number',
+                      phoneMobile:'Phone Mobile',
+                      country:'Country',
+                      address:'Address',
+                      complement:'Complement',
+                      subsidiary:'Subsidiary',
+                      position:'Position',
+                      permission:'Access level'
+                    },
+                    btn:{
+                      save:'Save changes',
+                      cancel:'Cancel'
+                    },
+                    confirm:{
+                      title:'Do you want to save this changes?',
+                      btn:{
+                        confirm:'Yes, save',
+                        cancel:'Back'
+                      }
+                    },
+                    success:{
+                      title:'Changes saved',
+                      text:'An email will be sent to user with the changes details.',
+                      btn:{
+                       close:'Close' 
+                      }
+                    }
                   }
                 }
               },
@@ -164,6 +292,7 @@ i18n
               table:{
                 head:{
                   select:'selected',
+                  id:'ID',
                   storage:'Storage',
                   subsidiary:'Subsidiary',
                   status:'Status',
@@ -194,6 +323,24 @@ i18n
                     excel:'Download Excel',
                     edit:'Edit',
                     delete:'Delete',
+                    filter:{
+                      title:'Filter by',
+                      category:{
+                        status:{
+                          title:'Status',
+                          delivered:'Delivered',
+                          ontransit:'On transit',
+                          delayed:'Delayed',
+                          cancelled:'Cancelled'
+                          
+                        },
+                        invoice:{
+                          title:'Invoice',
+                          file:'File',
+                          toupload:'Waiting file'
+                        }
+                      }
+                    }
                   }
                 },
                 pagination:{
@@ -219,7 +366,7 @@ i18n
                     },
                     success:{
                       title:'Delivery confirmed',
-                      text:'The order #41555 delivery was confirmed. \n\n The subsidiary in charge will receive a notification about this order status and its details.',
+                      text:'The order #41555 delivery was confirmed. \n\n The storage and the subsidiary in charge will receive a notification about this order status and its details.',
                       btn:{
                         close:'Close'
                       }
@@ -234,7 +381,8 @@ i18n
                     },
                     success:{
                       title:'Deletion confirmed',
-                      text:'The order #41555 deletion was confirmed. \n\n The storage and the subsidiary in charge will receive a notification about this order status and its details.',
+                      text1:'The order', 
+                      text2:'deletion was confirmed. \n\n The storage and the subsidiary in charge will receive a notification about this order status and its details.',
                       btn:{
                         close:'Close'
                       }
@@ -259,7 +407,7 @@ i18n
                   complement:'Complement',
                   subsidiary:'Subsidiary',
                   position:'Position',
-                  permission:'Permission'
+                  permission:'Access level'
                 }
               },
               notifications:{
@@ -356,6 +504,74 @@ i18n
           //   part1: 'Configure <1>src/App.js</1> e salve para recarregar.',
           //   part2: 'Aprenda React',
           // },
+          signup:{
+            tab:'Cadastrar | System',
+            greetings:'Olá, Bem-vindo!',
+            form:{
+              title:'Cadastre-se',
+              account:'Já tem uma conta ?',
+              login:'Entrar',
+              name:'Nome',
+              lastname:'Sobrenome',
+              id:'Id',
+              email:'Email',
+              phoneNumber:'Telefone',
+              phoneMobile:'Telefone celular',
+              country:'País',
+              address:'Endereço',
+              complement:'Complemento',
+              subsidiary:'Subsidiária',
+              position:'Ocupação',
+              helperText:'O nível de acesso será definido pelo administrador após aprovação do cadastro.',
+              passwordTitle:'Crie sua senha',
+              passwordRules:{
+                text:'A senha deve conter:',
+                rule1:'De 8 a 14 caracteres;',
+                rule2:'Pelo menos 1 letra maiúscula;',
+                rule3:'Pelo menos 1 letra minúscula;',
+                rule4:'Pelo menos 1 número',
+              },
+              password:'Senha',
+              confirmPassword:'Confirmar senha',
+              btn:{
+                register:'Cadastrar'
+              }
+            }
+          },
+          login:{
+            tab:'Entrar | System',
+            // title:'Login',
+            greetings:'Olá, bem-vindo !',
+            form:{
+              title:'Entrar',
+              noaccount:'Não tem uma conta ?',
+              register:'Registre-se',
+              or:'ou',
+              email:'Endereço de email',
+              password:'Senha',
+              remember:'Lembrar-me',
+              forgot:'Esqueceu a senha ?',
+              btn:{
+                login:'Entrar'
+              }
+            } 
+          },
+          recover:{
+            tab:'Recuperação | System',
+            // title:'Login',
+            greetings:'Olá, bem-vindo !',
+            form:{
+              title:'Vamos recuperar a sua conta',
+              text:'Por segurança, primeiro precisamos enviar um código de verificação para o seu email para validar sua identificação.',
+              email:'Endereço de email',
+              textcode:'Por favor, cole o código de verificação para ser validado:',
+              code:'Código',
+              btn:{
+                send:'Enviar',
+                validate:'Validar'
+              }
+            }
+          },
           dashboard: {
             tab: 'Painel do Usuário | System',
             welcome: 'Olá, bem-vindo!',
@@ -363,6 +579,15 @@ i18n
               home:'Painel do Usuário',
               settings:'Configurações',
               logout:'Encerrar sessão',
+            },
+            notifications:{
+              title:'Notificações',
+              text1:'Você tem',
+              text2:'mensagens não lidas',
+              markread:'Marcar tudo como lido',
+              new:'Novo',
+              before:'Antes disso',
+              viewall:'ver tudo'
             },
             track: {
               transit: {
@@ -392,7 +617,7 @@ i18n
             signup: 'cadastrar',
             recover: 'recuperar',
             verifycode: 'verificar',
-            notfound: 'ops!',
+            notfound: 'Erro',
           },
           page: {
             user: {
@@ -430,6 +655,23 @@ i18n
                   options:{
                     share:'Compartilhar',
                     excel:'Baixar Excel',
+                    edit:'Editar',
+                    delete:'Deletar',
+                    filter:{
+                      title:'Filtrar por',
+                      category:{
+                        verify:{
+                          title:'Verificado',
+                          yes:'Sim',
+                          no:'Não',   
+                        },
+                        status:{
+                          title:'Status',
+                          active:'Ativo',
+                          inactive:'Inativo'
+                        }
+                      }
+                    }
                   }
                 },
                 pagination:{
@@ -445,7 +687,7 @@ i18n
                     },
                     success:{
                       title:'Exclusão confirmada',
-                      text:'O usuário foi excluído. \n\n O usuário não tem mais acesso ao sistema e para tal deverá ser criado um novo cadastro.',
+                      text:'O usuário foi excluído e não tem mais acesso ao sistema e para tal deverá ser criado um novo cadastro.',
                       btn:{
                         close:'Fechar'
                       }
@@ -465,7 +707,7 @@ i18n
                       complement:'Complemento',
                       subsidiary:'Filial',
                       position:'Ocupação',
-                      permission:'Acesso'
+                      permission:'Nível de Acesso'
                     },
                     btn:{
                       create:'Criar usuário',
@@ -485,7 +727,42 @@ i18n
                        close:'Fechar' 
                       }
                     }
-                  } 
+                  },
+                  edit:{
+                    title:'Editar usuário',
+                    text:'Editar usuário',
+                    fields:{
+                      name:'Nome',
+                      lastname:'Sobrenome',
+                      email:'Email',
+                      phoneNumber:'Telefone',
+                      phoneMobile:'Celular',
+                      country:'País',
+                      address:'Endereço',
+                      complement:'Complemento',
+                      subsidiary:'Filial',
+                      position:'Ocupação',
+                      permission:'Nível de Acesso'
+                    },
+                    btn:{
+                      save:'Salvar mudanças',
+                      cancel:'Cancelar'
+                    },
+                    confirm:{
+                      title:'Deseja alterar este usuário ?',
+                      btn:{
+                        confirm:'Sim, alterar',
+                        cancel:'Voltar'
+                      }
+                    },
+                    success:{
+                      title:'Usuário alterado',
+                      text:'Um email será enviado ao usuário com os detalhes da alteração.',
+                      btn:{
+                       close:'Fechar' 
+                      }
+                    }
+                  },
                 }
               }
             },
@@ -495,6 +772,7 @@ i18n
               table:{
                 head:{
                   select:'selecionado(s)',
+                  id:'ID',
                   storage:'Distribuidor',
                   subsidiary:'Filial',
                   status:'Status',
@@ -525,6 +803,24 @@ i18n
                     excel:'Baixar Excel',
                     edit:'Editar',
                     delete:'Deletar',
+                    filter:{
+                      title:'Filtrar por',
+                      category:{
+                        status:{
+                          title:'Status',
+                          delivered:'Entregue',
+                          ontransit:'Em trânsito',
+                          delayed:'Atrasado',
+                          cancelled:'Cancelado'
+                          
+                        },
+                        invoice:{
+                          title:'Nota Fiscal',
+                          file:'Arquivo',
+                          toupload:'Aguardando arquivo'
+                        }
+                      }
+                    }
                   }
                 },
                 pagination:{
@@ -565,7 +861,8 @@ i18n
                     },
                     success:{
                       title:'Exclusão confirmada',
-                      text:'A exclusão do pedido #41555 foi confirmada. \n\n O distribuidor e a filial encarregados irão receber uma notificação sobre o status desse pedido e seus detalhes.',
+                      text1:'A exclusão do pedido',
+                      text2:'foi confirmada. \n\n O distribuidor e a filial encarregados irão receber uma notificação sobre o status desse pedido e seus detalhes.',
                       btn:{
                         close:'Fechar'
                       }
@@ -590,7 +887,7 @@ i18n
                   complement:'Complemento',
                   subsidiary:'Filial',
                   position:'Ocupação',
-                  permission:'Acesso'
+                  permission:'Nível de Acesso'
                 }
               },
               notifications:{
@@ -687,6 +984,74 @@ i18n
           //   part1: 'Configure <1>src/App.js</1> y guárdelo para recargarlo.',
           //   part2: 'Aprender React',
           // },
+          signup:{
+            tab:'Registrar | System',
+            greetings:'Hola, bienvenido!',
+            form:{
+              title:'Registro',
+              account:'¿Ya tienes una cuenta?',
+              login:'Acceso',
+              name:'Nombre',
+              lastname:'Apellido',
+              id:'Id',
+              email:'Correo electrónico',
+              phoneNumber:'Teléfono',
+              phoneMobile:'Teléfono móvil',
+              country:'País',
+              address:'Direccíon',
+              complement:'Complementar',
+              subsidiary:'Subsidiaria',
+              position:'Ocupación',
+              helperText:'El nivel de acceso será definido por el administrador después de la aprobación del registro.',
+              passwordTitle:'Registra tu contraseña',
+              passwordRules:{
+                text:'La contraseña debe contener:',
+                rule1:'8 a 14 caracteres;',
+                rule2:'Al menos 1 letra mayúscula;',
+                rule3:'Al menos 1 letra minúscula;',
+                rule4:'Al menos 1 número',
+              },
+              password:'Contraseña',
+              confirmPassword:'Confirmar contraseña',
+              btn:{
+                register:'Registrar'
+              }
+            }
+          },
+          login:{
+            tab:'Acceso | System',
+            // title:'Login',
+            greetings:'Hola, bienvenido !',
+            form:{
+              title:'Iniciar sesión',
+              noaccount:'¿No tienes una cuenta?',
+              register:'Registro',
+              or:'o',
+              email:'Correo electrónico',
+              password:'Contraseña',
+              remember:'Acuérdate de mí',
+              forgot:'Has olvidado tu contraseña ?',
+              btn:{
+                login:'Acceso'
+              }
+            } 
+          },
+          recover:{
+            tab:'Recuperación | System',
+            // title:'Login',
+            greetings:'¡Hola, bienvenido!',
+            form:{
+              title:'Recuperemos tu cuenta',
+              text:'Por seguridad, primero debemos enviar un código de verificación a su correo electrónico para validar su identificación.',
+              email:'Correo electrónico',
+              textcode:'Por favor, pegue el código de verificación para ser validado:',
+              code:'Código',
+              btn:{
+                send:'Enviar',
+                validate:'Validar'
+              }
+            }
+          },
           dashboard: {
             tab: 'Panel de usuario | System',
             welcome: 'Hola, bienvenido!',
@@ -694,6 +1059,15 @@ i18n
               home:'Panel de usuario',
               settings:'Ajustes',
               logout:'Cerrar sesión',
+            },
+            notifications:{
+              title:'Notificaciones',
+              text1:'Tú tienes',
+              text2:'mensajes no leídos',
+              markread:'Marcar todo como leido',
+              new:'Nuevo',
+              before:'Antes de que',
+              viewall:'Verlo todo'
             },
             track: {
               transit: {
@@ -723,7 +1097,7 @@ i18n
             signup: 'registrar',
             recover: 'recuperar',
             verifycode: 'verificar',
-            notfound: 'ops!',
+            notfound: 'Erro',
           },
           page: {
             user: {
@@ -760,7 +1134,24 @@ i18n
                   },
                   options:{
                     share:'Compartir',
-                    excel:'Descargar Excel',                    
+                    excel:'Descargar Excel', 
+                    edit:'Editar',
+                    delete:'Deletar',
+                    filter:{
+                      title:'Filtrar por',
+                      category:{
+                        verify:{
+                          title:'Verificado',
+                          yes:'Sí',
+                          no:'No',   
+                        },
+                        status:{
+                          title:'Status',
+                          active:'Activo',
+                          inactive:'Inactivo'
+                        }
+                      }
+                    }                   
                   }
                 },
                 pagination:{
@@ -776,7 +1167,7 @@ i18n
                     },
                     success:{
                       title:'Eliminacíon confirmada',
-                      text:'El usuario ha sido eliminado. \n\nEl usuario ya no tiene acceso al sistema y para ello deberá crear un nuevo registro.',
+                      text:'El usuario ha sido eliminado y ya no tiene acceso al sistema y para ello deberá crear un nuevo registro.',
                       btn:{
                         close:'Cerrar'
                       }
@@ -795,7 +1186,7 @@ i18n
                       complement:'Complementar',
                       subsidiary:'Subsidiaria',
                       position:'Ocupación',
-                      permission:'Acceso'
+                      permission:'Nivel de acceso'
                     },
                     btn:{
                       create:'Crear usuario',
@@ -815,6 +1206,40 @@ i18n
                        close:'Cerrar' 
                       }
                     }
+                  },
+                  edit:{
+                    title:'Editar usuario',
+                    fields:{
+                      name:'Nombre',
+                      lastname:'Apellido',
+                      email:'Email',
+                      phoneNumber:'Teléfono',
+                      phoneMobile:'Teléfono móvil',
+                      country:'País',
+                      address:'Direccíon',
+                      complement:'Complementar',
+                      subsidiary:'Subsidiaria',
+                      position:'Ocupación',
+                      permission:'Nivel de acceso'
+                    },
+                    btn:{
+                      save:'Guardar cambios',
+                      cancel:'Cancelar'
+                    },
+                    confirm:{
+                      title:'¿Quieres cambiar este usuario?',
+                      btn:{
+                        confirm:'Sí, alterar',
+                        cancel:'Volver'
+                      }
+                    },
+                    success:{
+                      title:'Usuario cambiado',
+                      text:'Se enviará un correo electrónico al usuario con los detalles del cambio.',
+                      btn:{
+                       close:'Cerrar' 
+                      }
+                    }
                   } 
                 }
               }
@@ -825,6 +1250,7 @@ i18n
               table:{
                 head:{
                   select:'seleccionado(s)',
+                  id:'ID',
                   storage:'Distribuidor',
                   subsidiary:'Subsidiario',
                   status:'Status',
@@ -859,17 +1285,17 @@ i18n
                       title:'Filtrar por',
                       category:{
                         status:{
-                          title:'',
-                          delivered:'',
-                          ontransit:'',
-                          delayed:'',
-                          cancelled:''
+                          title:'Status',
+                          delivered:'Entregado',
+                          ontransit:'En transito',
+                          delayed:'Atrasado',
+                          cancelled:'Cancelado'
                           
                         },
                         invoice:{
-                          title:'',
-                          file:'',
-                          toupload:''
+                          title:'Factura',
+                          file:'Archivo',
+                          toupload:'Archivo a cargar'
                         }
                       }
                     }
@@ -898,7 +1324,7 @@ i18n
                     },
                     success:{
                       title:'Entrega confirmada',
-                      text:'Se ha confirmado la entrega del pedido n.º 41555. \n\n El distribuidor responsable recibirá una notificación sobre el estado de este pedido y sus detalles.',
+                      text:'Se ha confirmado la entrega del pedido. \n\n El distribuidor y la filial responsable recibirá una notificación sobre el estado de este pedido y sus detalles.',
                       btn:{
                         close:'Cerrar'
                       }
@@ -913,7 +1339,8 @@ i18n
                     },
                     success:{
                       title:'Eliminacíon confirmada',
-                      text:'Se ha confirmado la eliminación del pedido n.º 41555. \n\nEl distribuidor responsable y la filial recibirán una notificación sobre el estado de este pedido y sus detalles.',
+                      text1:'Se ha confirmado la eliminación del pedido n.º',
+                      text2: 'El distribuidor y la filial responsable recibirán una notificación sobre el estado de este pedido y sus detalles.',
                       btn:{
                         close:'Cerrar'
                       }
@@ -938,7 +1365,7 @@ i18n
                   complement:'Complementar',
                   subsidiary:'Subsidiaria',
                   position:'Ocupación',
-                  permission:'Acceso'
+                  permission:'Nivel de acceso'
                 }
               },
               notifications:{

@@ -9,7 +9,8 @@ import i18next from '../i18n';
 // ----------------------------------------------------------------------
 
 const storage = [...Array(12)].map((_, index) => ({
-  id: faker.datatype.uuid(),
+  id: faker.datatype.number({min:100,max: 10000}),
+  // id: faker.datatype.uuid(),
   // avatarUrl: `/assets/images/avatars/avatar_${index + 1}.jpg`,
   storage: faker.company.name(),
   subsidiary: faker.company.name(),

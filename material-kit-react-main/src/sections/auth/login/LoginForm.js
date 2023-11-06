@@ -3,12 +3,16 @@ import { useNavigate } from 'react-router-dom';
 // @mui
 import { Link, Stack, IconButton, InputAdornment, TextField, FormControlLabel, Checkbox } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
+// i18n
+import { useTranslation, Trans } from 'react-i18next';
+import i18next from '../../../i18n';
 // components
 import Iconify from '../../../components/iconify';
 
 // ----------------------------------------------------------------------
 
 export default function LoginForm() {
+  const {t} = useTranslation();
   const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
@@ -20,11 +24,11 @@ export default function LoginForm() {
   return (
     <>
       <Stack spacing={3}>
-        <TextField name="email" label="Email address" />
+        <TextField name={t('login.form.email')} label={t('login.form.email')} />
 
         <TextField
-          name="password"
-          label="Password"
+          name={t('login.form.password')}
+          label={t('login.form.password')}
           type={showPassword ? 'text' : 'password'}
           InputProps={{
             endAdornment: (
@@ -39,7 +43,7 @@ export default function LoginForm() {
       </Stack>
 
       <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ my: 2 }}>
-        <FormControlLabel sx={{ margin: 0 }} control={<Checkbox />} label="Remember me" name="remember" />
+        <FormControlLabel sx={{ margin: 0 }} control={<Checkbox />} label={t('login.form.remember')} name={t('login.form.remember')} />
         <Link
           variant="subtitle2"
           underline="hover"
@@ -47,7 +51,7 @@ export default function LoginForm() {
             navigate('/recover', { replace: true });
           }}
         >
-          Forgot password?
+          {t('login.form.forgot')}
         </Link>
       </Stack>
 
@@ -60,7 +64,7 @@ export default function LoginForm() {
           navigate('/dashboard', { replace: true });
         }}
       >
-        Login
+        {t('login.form.btn.login')}
       </LoadingButton>
     </>
   );

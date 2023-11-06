@@ -176,6 +176,9 @@ export default function UserPage() {
     px: 4,
     pb: 3,
   };
+
+
+  
   const [openDelete, setOpenDelete] = useState(false);
 
   const handleOpenDelete = () => {
@@ -200,10 +203,10 @@ export default function UserPage() {
       <>
         <Stack align="center" direction="row" justifyContent={'center'} spacing={3} sx={{mt:4}}>
           <Button variant="contained" color="success" onClick={handleOpenConfirmDelete}>
-          {t('page.tracking.table.modal.delete.btn.confirm')}
+          {t('page.user.table.modal.delete.btn.confirm')}
           </Button>
           <Button variant="outlined" onClick={handleCloseConfirmDelete}>
-          {t('page.tracking.table.modal.delete.btn.close')}
+          {t('page.user.table.modal.delete.btn.close')}
           </Button>
         </Stack>
         <Modal
@@ -216,14 +219,14 @@ export default function UserPage() {
           <Box sx={{ ...style, minWidth: 400 }}>
             <Stack direction="row" spacing={2} alignItems={'center'} pt={2}>
               <Iconify icon={'eva:checkmark-circle-2-fill'} color="#229a16" width="2.25rem" height="2.25rem" />
-              <h2 id="child-modal-title">{t('page.tracking.table.modal.delete.success.title')}</h2>
+              <h2 id="child-modal-title">{t('page.user.table.modal.delete.success.title')}</h2>
             </Stack>
             <p id="child-modal-description" style={{whiteSpace:'pre-line'}}>
-            {t('page.tracking.table.modal.delete.success.text')}{' '}
+            {t('page.user.table.modal.delete.success.text')}{' '}
             </p>
             <Stack direction="column" justifyContent="center" alignItems="center">
               <Button onClick={handleCloseDelete} variant="outlined">
-              {t('page.tracking.table.modal.delete.success.btn.close')}
+              {t('page.user.table.modal.delete.success.btn.close')}
               </Button>
             </Stack>
           </Box>
@@ -346,6 +349,118 @@ export default function UserPage() {
       </>
     );
   }
+  const [openEditUser, setOpenEditUser] = useState(false);
+
+  const handleOpenEditUser = () => {
+    setOpenEditUser(true)
+  };
+  const handleCloseEditUser = () => {
+    setOpenEditUser(false)
+  };
+  // Confirm/Success Edit User Modal
+  function ConfirmEditUserModal() {
+    const [openConfirmEditUser, setOpenConfirmEditUser] = useState(false);
+
+    const handleOpenConfirmEditUser = () => {
+      setOpenConfirmEditUser(true);
+    };
+    const handleCloseConfirmEditUser = () => {
+      setOpenConfirmEditUser(false);
+    };
+
+    const [openSuccessEditUser, setOpenSuccessEditUser] = useState(false);
+
+    const handleOpenSuccessEditUser = () => {
+      setOpenSuccessEditUser(true);
+    };
+    const handleCloseSuccessEditUser = () => {
+      setOpenSuccessEditUser(false);
+    };
+
+    return (
+      <>
+        <Stack align="center" direction="row" justifyContent={'center'} spacing={3} sx={{mt:4}}>
+          <Button variant="contained" onClick={handleOpenConfirmEditUser}>
+            {t('page.user.table.modal.edit.btn.save')}
+          </Button>
+          <Button variant="outlined" onClick={handleCloseEditUser}>
+            {t('page.user.table.modal.edit.btn.cancel')}
+          </Button>
+        </Stack>
+
+        {/* Modal confirm */}
+        <Modal
+          open={openConfirmEditUser}
+          onClose={handleCloseConfirmEditUser}
+          aria-labelledby="child-modal-title"
+          aria-describedby="child-modal-description"
+          sx={{ '& .MuiBackdrop-root.MuiModal-backdrop': { backgroundColor: 'rgba(33, 43, 54, 0.1)' } }}
+        >
+          <Box sx={{ ...style, minWidth: 450 }}>
+            <Stack direction="row" spacing={2} alignItems={'center'} pt={2}>
+              <Iconify icon={'eva:alert-triangle-fill'} color="#efa61b" width="2.25rem" height="2.25rem" />
+              <h2 id="child-modal-title">{t('page.user.table.modal.edit.confirm.title')}</h2>
+            </Stack>
+            <List sx={{display: 'flex', flexDirection: 'row'}}>
+              <ListItem disablePadding>
+                <ListItemText primary="Name" secondary="Name"/>
+              </ListItem>
+              <ListItem disablePadding>
+                <ListItemText primary="ID" secondary="123456"/>
+              </ListItem>
+            </List>
+            <List sx={{display: 'flex', flexDirection: 'row'}}>
+              <ListItem disablePadding>
+                <ListItemText primary="Email" secondary="name@mail.com"/>
+              </ListItem>
+              <ListItem disablePadding>
+                <ListItemText primary="Subsidiary" secondary="Cajamar"/>
+              </ListItem>              
+            </List>
+            <List>
+              <ListItem disablePadding>
+                <ListItemText primary="Level" secondary="L1"/>
+              </ListItem>
+            </List>
+
+            <Stack align="center" direction="row" justifyContent={'center'} spacing={3} sx={{mt:4}}>
+              <Button onClick={handleOpenSuccessEditUser} variant="contained">
+              {t('page.user.table.modal.edit.confirm.btn.confirm')}
+              </Button>
+              <Button onClick={handleCloseConfirmEditUser} variant="outlined">
+              {t('page.user.table.modal.edit.confirm.btn.cancel')}
+              </Button>
+            </Stack>
+          </Box>
+        </Modal>
+
+        {/* Modal success */}
+        <Modal
+          open={openSuccessEditUser}
+          onClose={handleCloseSuccessEditUser}
+          aria-labelledby="child-modal-title"
+          aria-describedby="child-modal-description"
+          sx={{ '& .MuiBackdrop-root.MuiModal-backdrop': { backgroundColor: 'rgba(33, 43, 54, 0.1)' } }}
+        >
+          <Box sx={{ ...style, minWidth: 400 }}>
+            <Stack direction="row" spacing={2} alignItems={'center'} pt={2}>
+              <Iconify icon={'eva:checkmark-circle-2-fill'} color="#229a16" width="2.25rem" height="2.25rem" />
+              <h2 id="child-modal-title">{t('page.user.table.modal.edit.success.title')}</h2>
+            </Stack>
+            <p id="child-modal-description" style={{whiteSpace:'pre-line'}}>
+            {t('page.user.table.modal.edit.success.text')}{' '}
+            </p>
+            <Stack direction="column" justifyContent="center" alignItems="center">
+              <Button onClick={handleCloseEditUser} variant="outlined">
+              {t('page.user.table.modal.edit.success.btn.close')}
+              </Button>
+            </Stack>
+          </Box>
+        </Modal>
+        
+      </>
+    );
+  }
 
   const [name, setName] = useState();
   const [lastname, setLastname] = useState();
@@ -368,7 +483,7 @@ export default function UserPage() {
 
       <Container>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h3" gutterBottom>
             {t('page.user.title')}
           </Typography>
           <Button onClick={handleOpenNewUser} variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
@@ -415,8 +530,7 @@ export default function UserPage() {
                   id="outlined-required"
                   variant="outlined"
                   label="Email"
-                  value={email}
-                  
+                  value={email}                 
                 />
                 <TextField
                   type="number"
@@ -510,7 +624,138 @@ export default function UserPage() {
                             <Iconify icon={'eva:more-vertical-fill'} />
                           </IconButton>
                         </TableCell>
-                      </TableRow>
+                        <Popover
+                          open={Boolean(open)}
+                          anchorEl={open}
+                          onClose={handleCloseMenu}
+                          anchorOrigin={{ vertical: 'top', horizontal: 'left' }}
+                          transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+                          PaperProps={{
+                            sx: {
+                              p: 1,
+                              width: 'auto',
+                              '& .MuiMenuItem-root': {
+                                px: 1,
+                                typography: 'body2',
+                                borderRadius: 0.75,
+                              },
+                            },
+                          }}
+                        >
+                          <MenuItem onClick={handleOpenEditUser}>
+                            <Iconify icon={'eva:edit-2-outline'} sx={{ mr: 2 }} />
+                            {t('page.tracking.table.row.options.edit')}
+                          </MenuItem>
+                          {status === 'error' ? 
+                          <MenuItem >
+                            activate
+                          </MenuItem>:<MenuItem onClick={handleOpenDelete} sx={{ color: 'error.main'}}>
+                            <Iconify icon={'mingcute:delete-2-line'} sx={{ mr: 2 }}/>
+                            {t('page.tracking.table.row.options.delete')}
+                          </MenuItem>}
+                          
+                        </Popover>
+
+                        {/* Modal Edit */}
+                        <Modal
+                          open={openEditUser}
+                          onClose={handleCloseEditUser}
+                          aria-labelledby="parent-modal-title"
+                          aria-describedby="parent-modal-description"
+                          sx={{ '& .MuiBackdrop-root.MuiModal-backdrop': { backgroundColor: 'rgba(33, 43, 54, 0.1)' } }}
+                        >
+                          <Box sx={{ ...style, minWidth: 800, whiteSpace:'pre-line' }}>
+                            <h2 id="parent-modal-title">{t('page.user.table.modal.edit.title')}</h2>
+                            <Box
+                              component="form"
+                              sx={{
+                                '& .MuiTextField-root': { m: 1, my: 2, width: '30ch' },
+                              }}
+                              noValidate={false}
+                              autoComplete="off"
+                            >
+                              <Grid display='flex'>
+                                <TextField id="outlined-required" variant="outlined" label={t('page.user.table.modal.edit.fields.name')} placeholder={t('page.user.table.modal.edit.fields.name')} value={name}/>
+
+                                <TextField id="outlined-required" variant="outlined" label={t('page.user.table.modal.edit.fields.lastname')}  placeholder={t('page.user.table.modal.edit.fields.lastname')} value={lastname}  />
+
+                                <TextField
+                                  type="number"
+                                  required
+                                  id="outlined-required"
+                                  variant="outlined"
+                                  label="ID"
+                                  value={id}                 
+                                />
+                              </Grid>
+                              <Grid display="flex">
+                                <TextField
+                                  type="email"
+                                  required
+                                  id="outlined-required"
+                                  variant="outlined"
+                                  label="Email"
+                                  value={email}                 
+                                />
+                                <TextField
+                                  type="number"
+                                  required
+                                  id="outlined-required"
+                                  variant="outlined"
+                                  placeholder={t('page.user.table.modal.edit.fields.phoneNumber')}
+                                  label={t('page.user.table.modal.edit.fields.phoneNumber')}
+                                  value={phoneNumber}
+                                  
+                                />
+                                <TextField
+                                  type="number"
+                                  id="outlined-required"
+                                  variant="outlined"
+                                  label={t('page.user.table.modal.edit.fields.phoneMobile')}
+                                  placeholder={t('page.user.table.modal.edit.fields.phoneMobile')}
+                                  value={phoneMobile}
+                                  
+                                />
+                              </Grid>
+                              <Grid display="flex">
+                                <TextField required id="outlined-required" variant="outlined" label={t('page.user.table.modal.edit.fields.country')} placeholder={t('page.user.table.modal.edit.fields.country')} value={country}  />
+                                <TextField
+                                  id="outlined-required"
+                                  variant="outlined"
+                                  label={t('page.user.table.modal.edit.fields.address')}
+                                  placeholder={t('page.user.table.modal.edit.fields.address')}
+                                  value={address}
+                                  
+                                />
+                                <TextField id="outlined-required" variant="outlined" label={t('page.user.table.modal.edit.fields.complement')} placeholder={t('page.user.table.modal.edit.fields.complement')} value={complement}  />
+                              </Grid>
+                              <Grid display="flex">
+                                <TextField id="outlined-required" variant="outlined" label={t('page.user.table.modal.edit.fields.subsidiary')} placeholder={t('page.user.table.modal.edit.fields.subsidiary')} value={subsidiary}  />
+                                <TextField id="outlined-required" variant="outlined" label={t('page.user.table.modal.edit.fields.position')} placeholder={t('page.user.table.modal.edit.fields.position')} value={jobPosition}  />
+                                <TextField id="outlined-required" variant="outlined" label={t('page.user.table.modal.edit.fields.permission')} palceholder={t('page.user.table.modal.edit.fields.permission')} value={permission}  />
+                              </Grid>
+                            </Box>
+                            <ConfirmEditUserModal/>
+                          </Box>
+                        </Modal>
+
+                        {/* Modal Delete */}
+                        <Modal
+                          open={openDelete}
+                          onClose={handleCloseDelete}
+                          aria-labelledby="parent-modal-title"
+                          aria-describedby="parent-modal-description"
+                          sx={{ '& .MuiBackdrop-root.MuiModal-backdrop': { backgroundColor: 'rgba(33, 43, 54, 0.1)' } }}
+                        >
+                          <Box sx={{ ...style, minWidth: 400, whiteSpace:'pre-line' }}>
+                            <h2 id="parent-modal-title">{t('page.tracking.table.modal.delete.title')}</h2>
+                            <p id="parent-modal-description">
+                            {t('page.tracking.table.modal.delete.text')}
+                            </p>
+                            <ConfirmDeleteModal/>
+                          </Box>
+                        </Modal>
+                      </TableRow>                     
                     );
                   })}
                   {emptyRows > 0 && (
@@ -518,6 +763,7 @@ export default function UserPage() {
                       <TableCell colSpan={6} />
                     </TableRow>
                   )}
+                  
                 </TableBody>
 
                 {isNotFound && (
@@ -560,51 +806,7 @@ export default function UserPage() {
         </Card>
       </Container>
 
-      <Popover
-        open={Boolean(open)}
-        anchorEl={open}
-        onClose={handleCloseMenu}
-        anchorOrigin={{ vertical: 'top', horizontal: 'left' }}
-        transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-        PaperProps={{
-          sx: {
-            p: 1,
-            width: 'auto',
-            '& .MuiMenuItem-root': {
-              px: 1,
-              typography: 'body2',
-              borderRadius: 0.75,
-            },
-          },
-        }}
-      >
-        <MenuItem >
-          <Iconify icon={'eva:edit-2-outline'} sx={{ mr: 2 }} />
-          {t('page.tracking.table.row.options.edit')}
-        </MenuItem>
-
-        <MenuItem onClick={handleOpenDelete} sx={{ color: 'error.main'}}>
-          <Iconify icon={'mingcute:delete-2-line'} sx={{ mr: 2 }}/>
-          {t('page.tracking.table.row.options.delete')}
-        </MenuItem>
-      </Popover>
-
-      {/* Modal Delete */}
-      <Modal
-        open={openDelete}
-        onClose={handleCloseDelete}
-        aria-labelledby="parent-modal-title"
-        aria-describedby="parent-modal-description"
-        sx={{ '& .MuiBackdrop-root.MuiModal-backdrop': { backgroundColor: 'rgba(33, 43, 54, 0.1)' } }}
-      >
-        <Box sx={{ ...style, minWidth: 400, whiteSpace:'pre-line' }}>
-          <h2 id="parent-modal-title">{t('page.tracking.table.modal.delete.title')}</h2>
-          <p id="parent-modal-description">
-          {t('page.tracking.table.modal.delete.text')}
-          </p>
-          <ConfirmDeleteModal/>
-        </Box>
-      </Modal>
+      
     </>
   );
 }
