@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { alpha } from '@mui/material/styles';
 import { Box, MenuItem, Stack, IconButton, Popover, Select } from '@mui/material';
 import { useTranslation, Trans } from 'react-i18next';
+import { Icon } from '@iconify/react';
 
 import * as React from 'react';
 
@@ -89,7 +90,8 @@ export default function LanguagePopover() {
           }}
                           
         >
-          <img src={lngs.en.icon} alt={lngs.en.nativeName} />
+          {/* <img src={lngs.en.icon} alt={lngs.en.nativeName} /> */}
+          <Icon icon="clarity:language-line" width="32" height="32"/>
         </IconButton>
 
 
